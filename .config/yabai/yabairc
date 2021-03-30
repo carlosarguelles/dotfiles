@@ -31,6 +31,9 @@ yabai -m space 4 --label social
 # Space settings
 yabai -m config --space apps layout         float
 
+# Bar configuration
+yabai -m config external_bar all:30:0
+
 # yabai rules
 yabai -m rule --add app="^iTerm$" space=term 
 yabai -m rule --add app="^Google Chrome$" space=web 
@@ -41,5 +44,13 @@ yabai -m rule --add app="^Boom 3D$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Pomotroid$" sticky=on layer=above manage=off
+
+# Bar config
+yabai -m signal --add event=space_changed \
+    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"marsbar-index-jsx\"'"
+yabai -m signal --add event=display_changed \
+    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"marsbar-index-jsx\"'"
+yabai -m signal --add event=application_front_switched \
+    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"marsbar-index-jsx\"'"
 
 echo "yabai configuration loaded.."
