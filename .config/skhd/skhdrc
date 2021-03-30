@@ -94,7 +94,7 @@ hyper - return : yabai -m window --toggle float;\
 #hyper - t: /Applications/iTerm.app/Contents/MacOS/iTerm2 
 
 # restart yabai
-ctrl + alt + cmd - r : brew services restart yabai; brew services restart skhd; brew services restart spacebar
+ctrl + alt + cmd - r : brew services restart yabai; brew services restart skhd
 
 # restart skhd
 
