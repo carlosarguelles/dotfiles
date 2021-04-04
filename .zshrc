@@ -206,7 +206,8 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-
+# Wallpaper
+alias chwall='osascript -e "tell application \"System Events\" to set picture of every desktop to \"Users/carlos/utilities/walls/mcOS-BS1.jpg\""'
 
 #ALIAS
 alias v="nvim"
