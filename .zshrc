@@ -20,6 +20,7 @@ export LS_COLORS
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 export EDITOR=nvim
+export HOMEBREW_FORCE_BREWED_CURL=1
 plugins=(osx zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -206,8 +207,6 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-# Wallpaper
-alias chwall='osascript -e "tell application \"System Events\" to set picture of every desktop to \"Users/carlos/utilities/walls/mcOS-BS1.jpg\""'
 
 #ALIAS
 alias v="nvim"
@@ -224,7 +223,9 @@ alias bs="brew search"
 alias skhdconfig="v ~/.config/skhd/skhdrc"
 alias opdf="open -a Skim.app"
 alias sub="osdb get -l spa"
+alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
