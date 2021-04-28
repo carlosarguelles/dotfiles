@@ -1,5 +1,4 @@
 # interpreter for shell commands
-set icons true
 set hidden
 set shell zsh
 
