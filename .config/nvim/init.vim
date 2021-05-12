@@ -1,4 +1,3 @@
-set nohlsearch
 set shell=/bin/zsh
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -13,13 +12,11 @@ set wildmenu
 set hidden
 set noshowmode
 set noruler
-set laststatus=0
 set noshowcmd
 set cmdheight=1
-set colorcolumn=80
-set cursorline
+"set cursorline
+set mouse=a
 
-"set mouse=a
 "set clipboard=unnamedplus
 "set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 "set termencoding=utf-8
@@ -38,10 +35,10 @@ source /Users/carlos/.config/nvim/vim-plug/coc.vim
 source /Users/carlos/.config/nvim/maps.vim
 
 "THEME
-let g:gruvbox_termcolors = '265'
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_termcolors=256
 colorscheme gruvbox
-highlight Normal guibg=none
+"highlight Normal guibg=none
 
 " LaTeX config
 autocmd Filetype tex setl updatetime=1
