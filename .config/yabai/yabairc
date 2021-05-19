@@ -38,22 +38,29 @@ yabai -m space 1 --label term
 yabai -m space 2 --label web
 yabai -m space 3 --label apps
 yabai -m space 4 --label social
+yabai -m space 5 --label pdf
 yabai -m space 6 --label media
 
-# Space settings
-yabai -m config --space apps layout         float
+# Apps space settings
+yabai -m config --space apps top_padding     0
+yabai -m config --space apps bottom_padding  0
+yabai -m config --space apps left_padding    0
+yabai -m config --space apps right_padding   0
+yabai -m config --space apps window_gap      0
 
 # yabai rules
 yabai -m rule --add app="^iTerm$" space=term 
 yabai -m rule --add app="^kitty$" space=term 
+
 yabai -m rule --add app="^Google Chrome$" space=web 
+
 yabai -m rule --add app="^Telegram$" space=social 
 yabai -m rule --add app="^WhatsApp$" space=social 
+
 yabai -m rule --add app="^Spotify$" space=media 
+
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Boom 3D$" layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" layer=above manage=off
-yabai -m rule --add app="^Pomotroid$" layer=above manage=off
 yabai -m rule --add app="^Finder$" layer=above manage=off
 yabai -m rule --add app="^Adobe Illustrator 2021$" manage=off
 yabai -m rule --add app="^Adobe After Effects 2021$" manage=off

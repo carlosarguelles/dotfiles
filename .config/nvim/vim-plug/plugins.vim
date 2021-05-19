@@ -18,15 +18,19 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kabouzeid/nvim-lspinstall'
     Plug 'lifepillar/pgsql.vim'
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-scripts/auctex.vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tpope/vim-fugitive'
+    Plug 'ap/vim-css-color'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
 "LaTeX config
 let g:vimtex_compiler_progname = 'nvr'
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'xelatex'
-let g:livepreview_cursorhold_recompile = 0
 let g:pandoc#syntax#conceal#use = 0
+autocmd Filetype tex source ~/.config/nvim/autoload/plugged/auctex.vim/ftplugin/auctex.vim
 
 " SQL config
 let g:sql_type_default = 'pgsql'
@@ -41,3 +45,8 @@ let g:vimtex_compiler_latexmk = {
         \   '-interaction=nonstopmode',
         \ ],
         \}
+
+" AIRLINE
+let g:airline_theme = 'gruvbox'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1

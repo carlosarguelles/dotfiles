@@ -14,15 +14,9 @@ set noshowmode
 set noruler
 set noshowcmd
 set cmdheight=1
-"set cursorline
 set mouse=a
-
+set encoding=utf-8
 "set clipboard=unnamedplus
-"set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-"set termencoding=utf-8
-"set encoding=utf-8
-"set spell
-"set wildmenu
 
 
 " PLUGINS
@@ -35,10 +29,10 @@ source /Users/carlos/.config/nvim/vim-plug/coc.vim
 source /Users/carlos/.config/nvim/maps.vim
 
 "THEME
-"let g:gruvbox_contrast_dark = 'hard'
-"let g:gruvbox_termcolors=256
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+set bg=dark
 colorscheme gruvbox
-"highlight Normal guibg=none
 
 " LaTeX config
 autocmd Filetype tex setl updatetime=1
