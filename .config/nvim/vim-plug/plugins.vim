@@ -24,6 +24,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'ap/vim-css-color'
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'rust-lang/rust.vim'
+    Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -50,3 +52,6 @@ let g:vimtex_compiler_latexmk = {
 let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" RUST
+let g:rustfmt_autosave = 1

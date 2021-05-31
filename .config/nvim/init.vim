@@ -36,3 +36,6 @@ colorscheme gruvbox
 
 " LaTeX config
 autocmd Filetype tex setl updatetime=1
+
+syntax enable
+filetype plugin indent on

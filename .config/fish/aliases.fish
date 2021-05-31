@@ -18,6 +18,6 @@ end
 
 alias lds "diskutil list"
 
-alias l "exa -l -g --icons"
-alias ll "exa -al -g --icons"
+alias l "exa -l -g --icons --group-directories-first"
+alias ll "l -a"
 alias cl "clear"

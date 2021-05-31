@@ -28,4 +28,7 @@ set -gx PATH /Library/TeX/texbin/ $PATH
 set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH 
 
+set -gx PATH $HOME/.cargo/bin $PATH
+
 source ~/.config/fish/aliases.fish
+source ~/.config/fish/theme.fish
