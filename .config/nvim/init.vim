@@ -4,10 +4,8 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set incsearch
-set scrolloff=10
 set spelllang=en,es
 set number relativenumber
-set termguicolors
 set wildmenu
 set hidden
 set noshowmode
@@ -16,8 +14,9 @@ set noshowcmd
 set cmdheight=1
 set mouse=a
 set encoding=utf-8
+set nocursorline        " Don't paint cursor line
+set nocursorcolumn
 "set clipboard=unnamedplus
-
 
 " PLUGINS
 source /Users/carlos/.config/nvim/vim-plug/plugins.vim
@@ -29,10 +28,19 @@ source /Users/carlos/.config/nvim/vim-plug/coc.vim
 source /Users/carlos/.config/nvim/maps.vim
 
 "THEME
-let g:gruvbox_italic=1
-let g:gruvbox_bold=1
-set bg=dark
-colorscheme gruvbox
+" let g:gruvbox_italic=1
+" let g:gruvbox_bold=1
+" set bg=dark
+syntax on
+colorscheme nord
+let g:nord_bold = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+if (has("termguicolors"))
+    set termguicolors
+    " hi LineNr ctermbg=NONE guibg=NONE
+endif
 
 " LaTeX config
 autocmd Filetype tex setl updatetime=1

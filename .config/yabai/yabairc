@@ -1,11 +1,3 @@
-# the scripting-addition must be loaded manually if
-# you are running yabai on macOS Big Sur. Uncomment
-# the following line to have the injection performed
-# when the config is executed during startup.
-#
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
@@ -31,15 +23,16 @@ yabai -m space 6 --label media
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  15
-yabai -m config bottom_padding               15
-yabai -m config left_padding                 15
-yabai -m config right_padding                15
+yabai -m config top_padding                  18
+yabai -m config bottom_padding               18
+yabai -m config left_padding                 18
+yabai -m config right_padding                18
 yabai -m config window_gap                   5
 
 # web space settings
 yabai -m config --space mail layout          stack
 yabai -m config --space web layout           stack
+yabai -m config --space media layout         stack
 
 # term space settings
 yabai -m config --space term layout          bsp
@@ -50,22 +43,37 @@ yabai -m config --space term right_padding   10
 yabai -m config --space term window_gap      5
 
 # yabai rules
+yabai -m rule --add app="^Spark$" space=mail 
+yabai -m rule --add app="^Calendar$" space=mail 
 
-yabai -m rule --add app="^Mail$" space=mail 
-
-yabai -m rule --add app="^iTerm$" space=term 
+yabai -m rule --add app="^iTerm2$" space=term 
 yabai -m rule --add app="^kitty$" space=term 
 
-yabai -m rule --add app="^Safari$" space=web 
+yabai -m rule --add app="^Safari Technology Preview$" space=web 
+
+yabai -m rule --add app="^Adobe Illustrator 2021$" space=apps
+yabai -m rule --add app="^Adobe After Effects 2021$" space=apps
+yabai -m rule --add app="^Adobe Premiere Pro 2021$" space=apps
+yabai -m rule --add app="^Affinity Designer$" space=apps
 
 yabai -m rule --add app="^Telegram$" space=social 
 yabai -m rule --add app="^WhatsApp$" space=social 
 
 yabai -m rule --add app="^Spotify$" space=media 
+yabai -m rule --add app="^Music$" space=media 
 yabai -m rule --add app="^mpv$" space=media 
 
+# Untrack applications
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" layer=above manage=off
+yabai -m rule --add app="^App Store$" layer=above manage=off
+yabai -m rule --add app="^Folx$" layer=above manage=off
+yabai -m rule --add app="^Notes$" layer=above manage=off
+yabai -m rule --add app="^Reminders$" layer=above manage=off
+yabai -m rule --add app="^Dictionary$" layer=above manage=off
+yabai -m rule --add app="^Font Book$" layer=above manage=off
+yabai -m rule --add app="^Boom 3D$" layer=above manage=off
+yabai -m rule --add app="^Contacts$" layer=above manage=off
 yabai -m rule --add app="^Finder$" layer=above manage=off
 yabai -m rule --add app="^Adobe Illustrator 2021$" manage=off
 yabai -m rule --add app="^Adobe After Effects 2021$" manage=off

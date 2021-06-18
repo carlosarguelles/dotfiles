@@ -49,7 +49,7 @@ hyper - c  : yabai -m window --display next; yabai -m display --focus next || ya
 # alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
-# alt - e : yabai -m window --toggle split
+alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
 hyper - return : yabai -m window --toggle float;\
@@ -59,7 +59,7 @@ hyper - return : yabai -m window --toggle float;\
 ctrl + alt + cmd - r : brew services restart yabai; brew services restart skhd
 
 # toggle window fullscreen zoom
-hyper - f : yabai -m window --toggle zoom-parent
+hyper - f : yabai -m window --toggle zoom-fullscreen
 
 # rotate windows
 hyper - r : yabai -m space --rotate 90

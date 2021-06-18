@@ -30,5 +30,11 @@ set -gx PATH $GOPATH/bin $PATH
 
 set -gx PATH $HOME/.cargo/bin $PATH
 
+set -gx PATH /usr/local/opt/openjdk/bin $PATH
+set -gx CPPFLAGS "-I/usr/local/opt/openjdk/include"
+set -gx JAVA_HOME /usr/local/Cellar/openjdk/16.0.1/libexec/openjdk.jdk/Contents/Home
+
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/theme.fish
+
+starship init fish | source
