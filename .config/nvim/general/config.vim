@@ -6,21 +6,35 @@ set encoding=utf-8
 set title
 set autoindent
 set nobackup
-set hlsearch
+set nohlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
-set expandtab
 set shell=fish
-set lazyredraw
+" set lazyredraw
 set ignorecase
 set smarttab
 filetype plugin indent on
 set shiftwidth=2
-set tabstop=2
+set tabstop=2 softtabstop=2
+set expandtab
 set ai
 set si
-set nowrap
 set backspace=start,eol,indent
 set path+=**
+set completeopt=menuone,noinsert,noselect
+set hidden
+
+lua <<EOF
+vim.api.nvim_exec(
+    [[
+   au BufEnter term://* setlocal nonumber
+   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
+   au BufEnter term://* set laststatus=0 
+]],
+    false
+)
+
+EOF
+

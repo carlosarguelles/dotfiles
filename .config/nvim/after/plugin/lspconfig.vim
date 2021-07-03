@@ -5,6 +5,7 @@ endif
 lua <<EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
+local nvim_lsp_install = require('lspinstall')
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -36,8 +37,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 
-  require'completion'.on_attach(client, bufnr)
-
   protocol.CompletionItemKind = {
     '', -- Text
     '', -- Method
@@ -66,19 +65,85 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }
 
+  local ts_utils = require("nvim-lsp-ts-utils")
+  
+  -- defaults
+  ts_utils.setup {
+    debug = false,
+    disable_commands = false,
+    enable_import_on_completion = false,
+    import_all_timeout = 5000, -- ms
+
+    -- eslint
+    eslint_enable_code_actions = true,
+    eslint_enable_disable_comments = true,
+    eslint_bin = "eslint",
+    eslint_config_fallback = nil,
+    eslint_enable_diagnostics = false,
+
+    -- formatting
+    enable_formatting = false,
+    formatter = "prettier",
+    formatter_config_fallback = nil,
+
+    -- parentheses completion
+    complete_parens = false,
+    signature_help_in_parens = false,
+
+    -- update imports on file move
+    update_imports_on_move = false,
+    require_confirmation_on_move = false,
+    watch_dir = nil,
+  }
+
+  -- required to fix code action ranges
+  ts_utils.setup_client(client)
+
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 
 -- Typscript/Javascript
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.jsx" }
+  on_attach = on_attach
+  ,
+  filetypes = { "typescript", "typescriptreact", "typescript.jsx" },
+  capabilities = capabilities,
 } 
 
 -- Rust
-nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+nvim_lsp.rust_analyzer.setup({ on_attach=on_attach, capabilities = capabilities, })
 
 -- Python
-nvim_lsp.pyright.setup{ on_attach = on_attach }
+nvim_lsp.pyright.setup{ on_attach = on_attach, capabilities = capabilities, }
+
+-- HASKELL
+nvim_lsp.hls.setup{ on_attach = on_attach, capabilities = capabilities, }
+
+-- LSP install
+local function setup_servers()
+  nvim_lsp_install.setup()
+  local servers = nvim_lsp_install.installed_servers()
+  for _, server in pairs(servers) do
+    nvim_lsp[server].setup({ on_attach = on_attach, capabilities = capabilities, })
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+nvim_lsp_install.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,

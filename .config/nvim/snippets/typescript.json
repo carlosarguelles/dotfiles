@@ -1,0 +1,29 @@
+{
+  "consolelog": {
+    "prefix": ["clg"],
+    "body": ["console.log($0);"],
+    "description": "Prints a msg in console." 
+  }
+},
+{
+  "Class": {
+    "prefix": ["class"],
+    "body": [
+      "/**",
+      " * @author ${VIM:\\$USER}",
+      " */",
+      "class $1 ${2:extends ${3:Parent} }{",
+      "\tconstructor() {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Class definition template."
+  }
+},
+{
+  "reactClassCompoment": {
+    "prefix": "rcc",
+    "body": "import React, { Component } from 'react'\n\nclass ${1:componentName} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}\n\nexport default ${1:componentName}",
+    "description": "Creates a React component class with ES6 module system"
+  },

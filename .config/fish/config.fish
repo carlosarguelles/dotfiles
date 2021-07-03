@@ -1,9 +1,4 @@
 set fish_vi_key_bindings
-set fish_cursor_default block
-set fish_cursor_insert line
-set fish_cursor_replace_one underscore
-set fish_cursor_replace underscore
-set fish_cursor_visual block
 
 set fish_greeting ""
 set fish_color_command green
@@ -38,3 +33,4 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/theme.fish
 
 starship init fish | source
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; test -f /Users/carlos/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/carlos/.ghcup/bin $PATH # ghcup-env
