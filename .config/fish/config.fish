@@ -1,7 +1,9 @@
 set fish_vi_key_bindings
 
 set fish_greeting ""
-set fish_color_command green
+set fish_color_command brgreen --bold
+set fish_color_normal brwhite
+set fish_color_param normal
 
 set -gx EDITOR nvim
 
@@ -29,8 +31,8 @@ set -gx PATH /usr/local/opt/openjdk/bin $PATH
 set -gx CPPFLAGS "-I/usr/local/opt/openjdk/include"
 set -gx JAVA_HOME /usr/local/Cellar/openjdk/16.0.1/libexec/openjdk.jdk/Contents/Home
 
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; test -f /Users/carlos/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/carlos/.ghcup/bin $PATH # ghcup-env
+
 source ~/.config/fish/aliases.fish
-source ~/.config/fish/theme.fish
 
 starship init fish | source
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; test -f /Users/carlos/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/carlos/.ghcup/bin $PATH # ghcup-env

@@ -4,16 +4,18 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
-" Autoclose brackets
+" Autoclose brackets and suround
 Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'projekt0n/github-nvim-theme'
 
 if has("nvim")
-
-  " Gruvbox flat
-  Plug 'eddyekofo94/gruvbox-flat.nvim'
 
   " LSP
   Plug 'neovim/nvim-lspconfig'
@@ -27,8 +29,7 @@ if has("nvim")
   "Completion
   " Plug 'nvim-lua/completion-nvim'
   Plug 'hrsh7th/nvim-compe'
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/vim-vsnip-integ'
+  Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
 
   " Telescope stuff
@@ -57,11 +58,22 @@ if has("nvim")
   " Comments
   Plug 'tpope/vim-commentary'
 
-  " Haskell stuff
+  " Haskell Stuff
   Plug 'neovimhaskell/haskell-vim'
 
-  " TS/JS stuff
+  " TS/JS Stuff
   Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  " SQL Stuff
+  Plug 'nanotee/sqls.nvim'
+  Plug 'lifepillar/pgsql.vim'
+
+
+  " Latex Stuff
+  Plug 'lervag/vimtex'
+
+  "THE PRIMEAGEN!
+  Plug 'ThePrimeagen/vim-be-good'
 
 endif
 

@@ -65,39 +65,6 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }
 
-  local ts_utils = require("nvim-lsp-ts-utils")
-  
-  -- defaults
-  ts_utils.setup {
-    debug = false,
-    disable_commands = false,
-    enable_import_on_completion = false,
-    import_all_timeout = 5000, -- ms
-
-    -- eslint
-    eslint_enable_code_actions = true,
-    eslint_enable_disable_comments = true,
-    eslint_bin = "eslint",
-    eslint_config_fallback = nil,
-    eslint_enable_diagnostics = false,
-
-    -- formatting
-    enable_formatting = false,
-    formatter = "prettier",
-    formatter_config_fallback = nil,
-
-    -- parentheses completion
-    complete_parens = false,
-    signature_help_in_parens = false,
-
-    -- update imports on file move
-    update_imports_on_move = false,
-    require_confirmation_on_move = false,
-    watch_dir = nil,
-  }
-
-  -- required to fix code action ranges
-  ts_utils.setup_client(client)
 
 end
 
@@ -113,10 +80,9 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- Typscript/Javascript
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach
-  ,
   filetypes = { "typescript", "typescriptreact", "typescript.jsx" },
   capabilities = capabilities,
+  on_attach = on_attach 
 } 
 
 -- Rust
@@ -127,6 +93,20 @@ nvim_lsp.pyright.setup{ on_attach = on_attach, capabilities = capabilities, }
 
 -- HASKELL
 nvim_lsp.hls.setup{ on_attach = on_attach, capabilities = capabilities, }
+
+-- SQL Stuff
+nvim_lsp.sqls.setup{
+ settings = {
+    sqls = {
+      connections = {
+        {
+          driver = 'postgresql',
+          dataSourceName = 'user=postgres',
+        },
+      },
+    },
+  },
+}
 
 -- LSP install
 local function setup_servers()
@@ -190,13 +170,13 @@ nvim_lsp.diagnosticls.setup {
     },
     formatFiletypes = {
       css = 'prettier',
-      javascript = 'eslint_d',
-      javascriptreact = 'eslint_d',
+      javascript = 'prettier',
+      javascriptreact = 'prettier',
       json = 'prettier',
       scss = 'prettier',
       less = 'prettier',
-      typescript = 'eslint_d',
-      typescriptreact = 'eslint_d',
+      typescript = 'prettier',
+      typescriptreact = 'prettier',
       json = 'prettier',
       markdown = 'prettier',
     }

@@ -4,9 +4,6 @@ local M = {}
 
 M.config = function()
     local g = vim.g
-
-    -- vim.o.termguicolors = true
-
     g.nvim_tree_side = "left"
     g.nvim_tree_width = 25
     g.nvim_tree_ignore = {".git", "node_modules", ".cache", ".DS_Store"}
@@ -27,7 +24,6 @@ M.config = function()
     g.nvim_tree_disable_netrw = 1
     g.nvim_tree_hijack_netrw = 0
     g.nvim_tree_update_cwd = 1
-
     g.nvim_tree_show_icons = {
         git = 1,
         folders = 1,

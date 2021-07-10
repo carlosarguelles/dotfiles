@@ -12,7 +12,7 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set shell=fish
-" set lazyredraw
+set lazyredraw
 set ignorecase
 set smarttab
 filetype plugin indent on
@@ -23,8 +23,13 @@ set ai
 set si
 set backspace=start,eol,indent
 set path+=**
-set completeopt=menuone,noinsert,noselect
 set hidden
+set guicursor=
+
+au BufNewFile,BufRead *.graphql set ft=graphql
+au BufNewFile,BufRead *.tex set ft=tex
+
+let g:sql_type_default = 'pgsql'
 
 lua <<EOF
 vim.api.nvim_exec(
@@ -35,6 +40,5 @@ vim.api.nvim_exec(
 ]],
     false
 )
-
 EOF
 
