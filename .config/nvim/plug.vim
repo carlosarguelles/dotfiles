@@ -29,8 +29,10 @@ if has("nvim")
   "Completion
   " Plug 'nvim-lua/completion-nvim'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'ray-x/lsp_signature.nvim'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
+  " Plug 'nvim-lua/completion-nvim'
 
   " Telescope stuff
   Plug 'nvim-lua/popup.nvim'
@@ -66,14 +68,18 @@ if has("nvim")
 
   " SQL Stuff
   Plug 'nanotee/sqls.nvim'
-  Plug 'lifepillar/pgsql.vim'
-
+  Plug 'mpyatishev/vim-sqlformat'
 
   " Latex Stuff
   Plug 'lervag/vimtex'
 
   "THE PRIMEAGEN!
   Plug 'ThePrimeagen/vim-be-good'
+
+  "Markdown support
+  Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'vim-pandoc/vim-rmarkdown'
 
 endif
 

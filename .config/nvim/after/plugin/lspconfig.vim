@@ -65,34 +65,52 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }
 
+  require "lsp_signature".on_attach(client, bufnr)
+  
+  local capabilities = protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      'documentation',
+    }
+  }
+
+  if client.name == "typescript" or client.name == "tsserver" then
+    setup = function(client)
+        local ts = require("nvim-lsp-ts-utils")
+    -- vim.lsp.handlers["textDocument/codeAction"] = ts.code_action_handler
+        ts.setup({
+           disable_commands = false,
+           enable_import_on_completion = false,
+           import_on_completion_timeout = 5000,
+           eslint_bin = "eslint_d", -- use eslint_d if possible!
+           eslint_enable_diagnostics = true,
+           -- eslint_fix_current = false,
+           eslint_enable_disable_comments = true,
+        })
+
+     ts.setup_client(client)
+     end
+  end
+
 
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
 
 -- Typscript/Javascript
 nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.jsx" },
-  capabilities = capabilities,
-  on_attach = on_attach 
+  on_attach = on_attach,
 } 
 
 -- Rust
-nvim_lsp.rust_analyzer.setup({ on_attach=on_attach, capabilities = capabilities, })
+nvim_lsp.rust_analyzer.setup({ on_attach=on_attach})
 
 -- Python
-nvim_lsp.pyright.setup{ on_attach = on_attach, capabilities = capabilities, }
+nvim_lsp.pyright.setup{ on_attach = on_attach }
 
 -- HASKELL
-nvim_lsp.hls.setup{ on_attach = on_attach, capabilities = capabilities, }
+nvim_lsp.hls.setup{ on_attach = on_attach }
 
 -- SQL Stuff
 nvim_lsp.sqls.setup{
@@ -113,7 +131,7 @@ local function setup_servers()
   nvim_lsp_install.setup()
   local servers = nvim_lsp_install.installed_servers()
   for _, server in pairs(servers) do
-    nvim_lsp[server].setup({ on_attach = on_attach, capabilities = capabilities, })
+    nvim_lsp[server].setup({ on_attach = on_attach })
   end
 end
 
@@ -177,8 +195,7 @@ nvim_lsp.diagnosticls.setup {
       less = 'prettier',
       typescript = 'prettier',
       typescriptreact = 'prettier',
-      json = 'prettier',
-      markdown = 'prettier',
+      json = 'prettier'
     }
   }
 }

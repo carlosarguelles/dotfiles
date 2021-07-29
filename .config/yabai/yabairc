@@ -2,12 +2,12 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config window_border                on
+yabai -m config window_border                off
 yabai -m config window_border_width          6
 yabai -m config active_window_border_color   0xffe78a4e
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
-yabai -m config window_shadow                float
+yabai -m config window_shadow                on
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
 yabai -m config mouse_modifier               fn
@@ -18,33 +18,38 @@ yabai -m config focus_follows_mouse          autofocus
 yabai -m config mouse_follows_focus 	       on
 
 # Space labels
-yabai -m space 1 --label mail
-yabai -m space 2 --label web
-yabai -m space 3 --label term
-yabai -m space 4 --label apps
-yabai -m space 5 --label social
-yabai -m space 6 --label media
+yabai -m space 1 --label apps
+yabai -m space 2 --label chat
 
 # general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  5
-yabai -m config bottom_padding               5
-yabai -m config left_padding                 5
-yabai -m config right_padding                5
-yabai -m config window_gap                   5
+yabai -m config layout                       stack
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
+
+# yabai -m config --space apps layout          stack
+# yabai -m config --space apps top_padding     0
+# yabai -m config --space apps bottom_padding  0
+# yabai -m config --space apps left_padding    0
+# yabai -m config --space apps right_padding   0
+# yabai -m config --space apps window_gap      0
 
 # web space settings
-yabai -m config --space mail layout          stack
-yabai -m config --space web layout           stack
-yabai -m config --space media layout         stack
-yabai -m config --space social layout        stack
+# yabai -m config --space mail layout          stack
+# yabai -m config --space web layout           stack
+# yabai -m config --space media layout         stack
+# yabai -m config --space social layout        stack
 
 # yabai rules
-yabai -m rule --add app="^Spark$" space=mail 
-yabai -m rule --add app="^Calendar$" space=mail 
+#
+yabai -m rule --add app="^Google Chrome$" native-fullscreen=on
 
-yabai -m rule --add app="^iTerm2$" space=term 
-yabai -m rule --add app="^kitty$" space=term 
+yabai -m rule --add app="^Spark$" native-fullscreen=on
+yabai -m rule --add app="^Calendar$" space=apps 
+
+yabai -m rule --add app="^kitty$" native-fullscreen=on
 
 # yabai -m rule --add app="^Safari Technology Preview$" space=web 
 
@@ -53,13 +58,14 @@ yabai -m rule --add app="^Adobe After Effects 2021$" space=apps
 yabai -m rule --add app="^Adobe Premiere Pro 2021$" space=apps
 yabai -m rule --add app="^Affinity Designer$" space=apps
 
-yabai -m rule --add app="^Telegram$" space=social 
-yabai -m rule --add app="^WhatsApp$" space=social 
-yabai -m rule --add app="^Discord$" space=social 
+yabai -m rule --add app="^Telegram$" space=chat
+yabai -m rule --add app="^WhatsApp$" space=chat
+yabai -m rule --add app="^Discord$" space=chat
+yabai -m rule --add app="^Messages$" space=chat
 
-yabai -m rule --add app="^Spotify$" space=media 
-yabai -m rule --add app="^Music$" space=media 
-yabai -m rule --add app="^mpv$" space=media border=off native-fullscreen=on
+yabai -m rule --add app="^Spotify$" native-fullscreen=on
+# yabai -m rule --add app="^Music$" space=media 
+yabai -m rule --add app="^mpv$" native-fullscreen=on
 
 # Untrack applications
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off border=off
@@ -73,9 +79,9 @@ yabai -m rule --add app="^Font Book$" layer=above manage=off border=off
 yabai -m rule --add app="^Boom 3D$" layer=above manage=off border=off
 yabai -m rule --add app="^Contacts$" layer=above manage=off border=off
 yabai -m rule --add app="^Finder$" layer=above manage=off border=off
-yabai -m rule --add app="^Adobe Illustrator 2021$" manage=off
-yabai -m rule --add app="^Adobe After Effects 2021$" manage=off
-yabai -m rule --add app="^Adobe Premiere Pro 2021$" manage=off
+# yabai -m rule --add app="^Adobe Illustrator 2021$" manage=off
+# yabai -m rule --add app="^Adobe After Effects 2021$" manage=off
+# yabai -m rule --add app="^Adobe Premiere Pro 2021$" manage=off
 
 # yabai signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"

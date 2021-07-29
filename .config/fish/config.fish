@@ -1,9 +1,31 @@
-set fish_vi_key_bindings
+#!/usr/local/bin/fish
 
+fish_vi_key_bindings
+set fish_color_valid_path
 set fish_greeting ""
+
+#function fish_prompt
+#         set_color red --bold
+#         printf "["
+#         set_color yellow
+#         printf "%s" "$USER"
+#         set_color green
+#         printf "@"
+#         set_color blue
+#         printf "%s" "$hostname"
+#         set_color magenta
+#         printf " %s" (prompt_pwd)
+#         set_color red --bold
+#         printf "] "
+#         set_color normal
+#end
+
 set fish_color_command brgreen --bold
 set fish_color_normal brwhite
 set fish_color_param normal
+
+function fish_user_key_bindings
+end
 
 set -gx EDITOR nvim
 
