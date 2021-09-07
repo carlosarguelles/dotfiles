@@ -2,7 +2,6 @@ autocmd!
 scriptencoding utf-8
 set nocompatible
 set number relativenumber
-syntax enable
 set fileencodings=utf-8
 set encoding=utf-8
 set title
@@ -27,18 +26,17 @@ set si
 set backspace=start,eol,indent
 set path+=**
 set hidden
-set guicursor=
+" set guicursor=
 set shortmess+=c
 
 au BufNewFile,BufRead *.graphql set ft=graphql
 au BufNewFile,BufRead *.tex set ft=tex
 au BufNewFile,BufRead *.fish set ft=fish
 au BufNewFile,BufRead *.ino set ft=cpp
-au BufNewFile,BufRead *.rmd set spell spelllang=es
+" au BufNewFile,BufRead *.rmd,*.Rmd set spell spelllang=es
+" au BufNewFile,BufRead *.rmd,*.Rmd set ft=rmarkdown
 au BufNewFile,BufRead *.md set spell spelllang=es
-autocmd FileType rmd setlocal commentstring=<!--%s-->
-
-let g:sql_type_default = 'pgsql'
+autocmd FileType rmarkdown setlocal commentstring=<!--%s-->
 
 lua <<EOF
 vim.api.nvim_exec(
@@ -51,3 +49,13 @@ vim.api.nvim_exec(
 )
 EOF
 
+" FileType
+
+let g:sql_type_default = 'pgsql'
+
+
+" JAVA 🤮
+augroup lsp
+   au!
+   au FileType java lua require('jdtls').start_or_attach({cmd = {'jdt.ls'}})
+augroup end

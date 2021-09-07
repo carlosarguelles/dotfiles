@@ -10,77 +10,96 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'projekt0n/github-nvim-theme'
+Plug 'lifepillar/vim-gruvbox8'
 
-if has("nvim")
+" MATLAB 🤮
+Plug 'lazywei/vim-matlab'
 
-  " LSP
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'glepnir/lspsaga.nvim'
-  Plug 'nvim-lua/lsp_extensions.nvim'
-  Plug 'kabouzeid/nvim-lspinstall'
+" Kitty
+Plug 'fladson/vim-kitty'
 
-  " Treesitter for syntax highlightning
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+" Startuptime
+Plug 'tweekmonster/startuptime.vim'
 
-  "Completion
-  " Plug 'nvim-lua/completion-nvim'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'ray-x/lsp_signature.nvim'
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'rafamadriz/friendly-snippets'
-  " Plug 'nvim-lua/completion-nvim'
+"Gruvbox Lua :0
+" Plug 'Murtaza-Udaipurwala/gruvqueen'
 
-  " Telescope stuff
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+"Rainbow 🌈 Parentheses
+Plug 'p00f/nvim-ts-rainbow'
 
-  " Icons
-  Plug 'kyazdani42/nvim-web-devicons'
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'mfussenegger/nvim-jdtls'
 
-  " Lualine
-  Plug 'hoob3rt/lualine.nvim'
+" Treesitter for syntax highlightning
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
-  " BufferLine
-  Plug 'akinsho/nvim-bufferline.lua'
+"Completion
+" Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+" Plug 'nvim-lua/completion-nvim'
 
-  " Nvim-tree
-  Plug 'kyazdani42/nvim-tree.lua'
+" Telescope stuff
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-  " Auto closes tags
-  Plug 'windwp/nvim-ts-autotag'
+" Icons
+Plug 'kyazdani42/nvim-web-devicons'
 
-  " Coc
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Lualine
+Plug 'hoob3rt/lualine.nvim'
 
-  " Comments
-  Plug 'tpope/vim-commentary'
+" BufferLine
+Plug 'akinsho/nvim-bufferline.lua'
 
-  " Haskell Stuff
-  Plug 'neovimhaskell/haskell-vim'
+" Nvim-tree
+Plug 'kyazdani42/nvim-tree.lua'
 
-  " TS/JS Stuff
-  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+" Auto closes tags
+Plug 'windwp/nvim-ts-autotag'
 
-  " SQL Stuff
-  Plug 'nanotee/sqls.nvim'
-  Plug 'mpyatishev/vim-sqlformat'
+" Coc
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-  " Latex Stuff
-  Plug 'lervag/vimtex'
+" Comments
+" Plug 'tpope/vim-commentary'
+Plug 'b3nj5m1n/kommentary'
 
-  "THE PRIMEAGEN!
-  Plug 'ThePrimeagen/vim-be-good'
+" Haskell Stuff
+" Plug 'neovimhaskell/haskell-vim'
 
-  "Markdown support
-  Plug 'vim-pandoc/vim-pandoc'
-  Plug 'vim-pandoc/vim-pandoc-syntax'
-  Plug 'vim-pandoc/vim-rmarkdown'
+" TS/JS Stuff
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
-endif
+" SQL Stuff
+Plug 'nanotee/sqls.nvim'
+" Plug 'mpyatishev/vim-sqlformat'
+Plug 'lifepillar/pgsql.vim'
+
+" Latex Stuff
+Plug 'lervag/vimtex'
+
+"THE PRIMEAGEN!
+" Plug 'ThePrimeagen/vim-be-good'
+
+"Markdown support
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'jalvesaq/R-Vim-runtime'
+
+"Solarized lua
+" Plug 'ishan9299/nvim-solarized-lua'
+
+" Nord Stuff
+" Plug 'shaunsingh/nord.nvim'
+" Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 call plug#end()

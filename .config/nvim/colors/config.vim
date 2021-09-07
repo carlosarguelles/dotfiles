@@ -4,11 +4,9 @@ if exists("&termguicolors") && exists("&winblend")
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-  " source $HOME/.config/nvim/colors/github-colors.vim
-  let g:gruvbox_material_background = 'hard'
   set background=dark
-  " let g:gruvbox_contrast_dark = 'hard'
-
-  colorscheme gruvbox-material
-  " hi Normal guibg=NONE ctermbg=NONE
+  let g:gruvbox_transp_bg=1
+  let g:gruvbox_bold=0
+  let g:gruvbox_italics=0
+  colorscheme gruvbox8_hard
 endif

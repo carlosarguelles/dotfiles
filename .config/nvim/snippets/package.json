@@ -1,0 +1,28 @@
+{
+  "name": "snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "rmd"
+        ],
+        "path": "./snippets/rmarkdown.json"
+      },
+      {
+        "language": [
+          "rmd",
+          "plaintex",
+          "tex"
+        ],
+        "path": "./snippets/latexmath.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/tsreact.json"
+      }
+    ]
+  }
+}

@@ -1,27 +1,33 @@
--- require('lualine').setup {
---   options = {
---     theme = 'gruvbox_material'
---   }
--- }
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
 local lualine = require 'lualine'
 
--- Color table for highlights
+-- -- Color table for gruvbox
 local colors = {
-   bg = '#1d2021',
-   fg = '#d4be98',
-   yellow = '#d8a657',
-   cyan = '#89b482',
-   darkblue = '#7daea3',
-   green = '#a9b665',
-   orange = '#e78a4e',
+   bg = '#282828',
+   fg = '#ebdbb2',
+   yellow = '#fabd2f',
+   cyan = '#8ec07c',
+   darkblue = '#83a598',
+   green = '#b8bb26',
+   orange = '#fe8019',
    violet = '#d3869b',
    magenta = '#d3869b',
-   blue = '#7daea3',
-   red = '#ea6962'
+   blue = '#83a598',
+   red = '#fb4934'
 }
+--
+--[[ local colors = {
+  bg = '#202328',
+  fg = '#bbc2cf',
+  yellow = '#ECBE7B',
+  cyan = '#008080',
+  darkblue = '#081633',
+  green = '#98be65',
+  orange = '#FF8800',
+  violet = '#a9a1e1',
+  magenta = '#c678dd',
+  blue = '#51afef',
+  red = '#ec5f67'
+} ]]
 
 local conditions = {
   buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
@@ -80,7 +86,7 @@ end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = colors.blue}, -- Sets highlighting of component
+  color = {fg = colors.magenta}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
 }
 
@@ -120,30 +126,16 @@ ins_left {
 }
 
 ins_left {
-  -- filesize component
-  function()
-    local function format_file_size(file)
-      local size = vim.fn.getfsize(file)
-      if size <= 0 then return '' end
-      local sufixes = {'b', 'k', 'm', 'g'}
-      local i = 1
-      while size > 1024 do
-        size = size / 1024
-        i = i + 1
-      end
-      return string.format('%.1f%s', size, sufixes[i])
-    end
-    local file = vim.fn.expand('%:p')
-    if string.len(file) == 0 then return '' end
-    return format_file_size(file)
-  end,
-  condition = conditions.buffer_not_empty
-}
-
-ins_left {
   'filename',
   condition = conditions.buffer_not_empty,
   color = {fg = colors.magenta, gui = 'bold'}
+}
+
+ins_left {
+  'branch',
+  icon = '',
+  condition = conditions.check_git_workspace,
+  color = {fg = colors.cyan, gui = 'bold'}
 }
 
 ins_left {'location'}
@@ -158,10 +150,6 @@ ins_left {
   color_warn = colors.yellow,
   color_info = colors.cyan
 }
-
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
-ins_left {function() return '%=' end}
 
 ins_left {
   -- Lsp server name .
@@ -178,7 +166,7 @@ ins_left {
     end
     return msg
   end,
-  icon = ' LSP:',
+  icon = ' ',
   color = {fg = colors.fg, gui = 'bold'}
 }
 
@@ -197,12 +185,6 @@ ins_right {
   color = {fg = colors.green, gui = 'bold'}
 }
 
-ins_right {
-  'branch',
-  icon = '',
-  condition = conditions.check_git_workspace,
-  color = {fg = colors.violet, gui = 'bold'}
-}
 
 ins_right {
   'diff',
@@ -212,12 +194,6 @@ ins_right {
   color_modified = colors.orange,
   color_removed = colors.red,
   condition = conditions.hide_in_width
-}
-
-ins_right {
-  function() return '▊' end,
-  color = {fg = colors.blue},
-  right_padding = 0
 }
 
 -- Now don't forget to initialize lualine

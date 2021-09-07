@@ -11,7 +11,6 @@ noremap <Leader>p "*p
 noremap <Leader>P "*P
 
 nmap <leader>so :so%<CR>
-imap jk <Esc>
 
 nnoremap <Leader>t :NvimTreeToggle<CR>
 

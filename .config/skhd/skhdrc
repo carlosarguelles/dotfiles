@@ -25,10 +25,10 @@ hyper - 5 : yabai -m space --focus 5
 hyper - 6 : yabai -m space --focus 6
 hyper - 7 : yabai -m space --focus 7
 hyper - 9 : yabai -m space --focus last
-hyper - t : (yabai -m query --windows | jq -er 'map(select(.app == "kitty" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {} 
+hyper - t : yabai -m space --focus 3
 hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Google Chrome" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {} 
+# hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Firefox Developer Edition" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {} 
 hyper - s : (yabai -m query --windows | jq -er 'map(select(.app == "Spotify" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
-hyper - v : (yabai -m query --windows | jq -er 'map(select(.app == "mpv" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
 hyper - v : (yabai -m query --windows | jq -er 'map(select(.app == "mpv" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
 hyper - m : (yabai -m query --windows | jq -er 'map(select(.app == "Spark" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
 alt - o : yabai -m space --focus recent

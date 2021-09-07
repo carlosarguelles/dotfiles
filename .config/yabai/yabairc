@@ -3,8 +3,8 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
 yabai -m config window_border                off
-yabai -m config window_border_width          6
-yabai -m config active_window_border_color   0xffe78a4e
+yabai -m config window_border_width          3
+yabai -m config active_window_border_color   0xffb8bb26
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config window_shadow                on
@@ -20,6 +20,7 @@ yabai -m config mouse_follows_focus 	       on
 # Space labels
 yabai -m space 1 --label apps
 yabai -m space 2 --label chat
+yabai -m space 3 --label term
 
 # general space settings
 yabai -m config layout                       stack
@@ -29,12 +30,13 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
-# yabai -m config --space apps layout          stack
-# yabai -m config --space apps top_padding     0
-# yabai -m config --space apps bottom_padding  0
-# yabai -m config --space apps left_padding    0
-# yabai -m config --space apps right_padding   0
-# yabai -m config --space apps window_gap      0
+#term conf
+yabai -m config --space term layout          bsp
+yabai -m config --space term top_padding     0
+yabai -m config --space term bottom_padding  0
+yabai -m config --space term left_padding    0
+yabai -m config --space term right_padding   0
+yabai -m config --space term window_gap      5
 
 # web space settings
 # yabai -m config --space mail layout          stack
@@ -45,11 +47,13 @@ yabai -m config window_gap                   10
 # yabai rules
 #
 yabai -m rule --add app="^Google Chrome$" native-fullscreen=on
+yabai -m rule --add app="^Firefox Developer Edition$" native-fullscreen=on
 
 yabai -m rule --add app="^Spark$" native-fullscreen=on
 yabai -m rule --add app="^Calendar$" space=apps 
 
-yabai -m rule --add app="^kitty$" native-fullscreen=on
+yabai -m rule --add app="^kitty$" space=term #border=on
+yabai -m rule --add app="^iTerm$" space=term #border=on
 
 # yabai -m rule --add app="^Safari Technology Preview$" space=web 
 

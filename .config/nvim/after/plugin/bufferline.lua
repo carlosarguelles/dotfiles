@@ -1,8 +1,6 @@
 require('bufferline').setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both",
-    number_style = "superscript", --| "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-    mappings = true, -- | false,
     close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
@@ -56,8 +54,7 @@ require('bufferline').setup {
     -- [focused and unfocused]. eg: { '|', '|' }
     separator_style = "thin", --| "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = false, --| true,
-    always_show_bufferline = false,
-    sort_by = 'extension'
+    always_show_bufferline = false
   }
 }
 
