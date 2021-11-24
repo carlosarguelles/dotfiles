@@ -1,8 +1,113 @@
+--[[ require('lualine').setup {
+  options = {
+    theme = 'vscode'
+  }
+} ]]
+
+
 local lualine = require 'lualine'
 
+--[[ lualine.setup {
+  options = {
+    theme = 'nord'
+  },
+  sections = {
+    lualine_a = {'branch', 'diff',
+                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+    lualine_b = {'filename'},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  }} ]]
+
+  lualine.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'nord',
+    section_separators = {left = '', right = ''},
+    component_separators = {left = '', right = ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {{
+      'filename',
+      file_status = true, -- displays file status (readonly status, modified status)
+      path = 0 -- 0 = just filename, 1 = relative path, 2 = absolute path
+    }},
+    lualine_x = {
+      { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+      'encoding',
+      'filetype'
+    },
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {{
+      'filename',
+      file_status = true, -- displays file status (readonly status, modified status)
+      path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+    }},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {'fugitive'}
+}
+
+--[[ lualine.setup {
+  options = {
+    theme = 'nord'
+  } ]]
+-- }
+--
+-- -- Color table for gruvbox soft
+--[[ local colors = {
+   bg = '#3c3836',
+   fg = '#d4be98',
+   yellow = '#fabd2f',
+   cyan = '#8ec07c',
+   darkblue = '#83a598',
+   green = '#b8bb26',
+   orange = '#fe8019',
+   violet = '#d3869b',
+   magenta = '#d3869b',
+   blue = '#83a598',
+   red = '#fb4934'
+} ]]
+
 -- -- Color table for gruvbox
-local colors = {
+--[[ local colors = {
    bg = '#282828',
+   fg = '#d4be98',
+   yellow = '#fabd2f',
+   cyan = '#8ec07c',
+   darkblue = '#83a598',
+   green = '#b8bb26',
+   orange = '#fe8019',
+   violet = '#d3869b',
+   magenta = '#d3869b',
+   blue = '#83a598',
+   red = '#fb4934'
+} ]]
+
+-- Color table for Nord
+--[[ local colors = {
+   bg = '#2E3440',
    fg = '#ebdbb2',
    yellow = '#fabd2f',
    cyan = '#8ec07c',
@@ -13,7 +118,7 @@ local colors = {
    magenta = '#d3869b',
    blue = '#83a598',
    red = '#fb4934'
-}
+} ]]
 --
 --[[ local colors = {
   bg = '#202328',
@@ -29,7 +134,7 @@ local colors = {
   red = '#ec5f67'
 } ]]
 
-local conditions = {
+--[[ local conditions = {
   buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
   hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
   check_git_workspace = function()
@@ -197,4 +302,4 @@ ins_right {
 }
 
 -- Now don't forget to initialize lualine
-lualine.setup(config)
+lualine.setup(config) ]]

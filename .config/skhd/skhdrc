@@ -1,18 +1,17 @@
-# focus window and display
-hyper - j : yabai -m window --focus next || yabai -m window --focus first
-hyper - k : yabai -m window --focus prev || yabai -m window --focus last
+#Navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
-# focus desktop
+# # Moving windows
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+# # focus desktop
 hyper - o : yabai -m display --focus next || yabai -m display --focus first
-
-# swap managed window
-hyper - p : yabai -m window --swap next || yabai -m window --swap first
-
-# move managed window
-shift + cmd - h : yabai -m window --warp east
-
-# balance size of windows
-hyper - 0 : yabai -m space --balance
 
 # focus spaces
 hyper - right : yabai -m space --focus next 
@@ -26,63 +25,27 @@ hyper - 6 : yabai -m space --focus 6
 hyper - 7 : yabai -m space --focus 7
 hyper - 9 : yabai -m space --focus last
 hyper - t : yabai -m space --focus 3
-hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Google Chrome" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {} 
-# hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Firefox Developer Edition" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {} 
-hyper - s : (yabai -m query --windows | jq -er 'map(select(.app == "Spotify" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
-hyper - v : (yabai -m query --windows | jq -er 'map(select(.app == "mpv" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
-hyper - m : (yabai -m query --windows | jq -er 'map(select(.app == "Spark" and ."native-fullscreen" == 1))[0].space') | xargs -I{} yabai -m space --focus {}
+hyper - w : yabai -m space --focus 2
+hyper - a : yabai -m space --focus 1
+hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Brave Browser Dev"))[0].space') | xargs -I{} yabai -m space --focus {} 
+hyper - s : (yabai -m query --windows | jq -er 'map(select(.app == "Spotify"))[0].space') | xargs -I{} yabai -m space --focus {} || (yabai -m query --windows | jq -er 'map(select(.app == "TIDAL"))[0].space') | xargs -I{} yabai -m space --focus {}
+hyper - v : (yabai -m query --windows | jq -er 'map(select(.app == "mpv"))[0].space') | xargs -I{} yabai -m space --focus {}
+hyper - m : (yabai -m query --windows | jq -er 'map(select(.app == "Spark"))[0].space') | xargs -I{} yabai -m space --focus {}
 alt - o : yabai -m space --focus recent
-
 
 # send window to desktop and follow focus
 hyper - l : yabai -m window --space next; yabai -m space --focus next
 hyper - h : yabai -m window --space prev; yabai -m space --focus prev
 
+# Fullscreen
+hyper - z : yabai -m window --toggle zoom-fullscreen
+
 # send window to monitor and follow focus
 hyper - c  : yabai -m window --display next; yabai -m display --focus next || yabai -m window --display prev; yabai -m display --focus prev
 
-# # increase window size
-# hyper - a : yabai -m window --resize left:-20:0
-# hyper - d : yabai -m window --resize left:-20:0
-# hyper - w : yabai -m window --resize top:0:-20
-
-# # decrease window size
-# hyper - s : yabai -m window --resize bottom:0:-20
-# hyper - w : yabai -m window --resize top:0:20
-
-# set insertion point in focused container
-# ctrl + alt - h : yabai -m window --insert west
-
-# toggle window zoom
-# alt - d : yabai -m window --toggle zoom-parent
-# alt - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle window split type
-alt - e : yabai -m window --toggle split
-
-# float / unfloat window and center on screen
-hyper - return : yabai -m window --toggle float;\
-          yabai -m window --grid 8:8:1:1:6:6
-
-# restart yabai
 ctrl + alt + cmd - r : brew services restart yabai; brew services restart skhd
 
-# toggle window fullscreen zoom
-hyper - f : yabai -m window --toggle zoom-fullscreen
-
-# rotate windows
-hyper - r : yabai -m space --rotate 90
-
-# STACKS
-# Focus window up/down in stack
-alt - j : yabai -m window --focus stack.next || yabai -m window --focus stack.prev
-alt - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.next
-
-# Toggle Layout
-alt - s : yabai -m config --space $(yabai -m query --spaces --space | jq -r '.index') layout stack
+alt - r : yabai -m config --space $(yabai -m query --spaces --space | jq -r '.index') layout float
 alt - b : yabai -m config --space $(yabai -m query --spaces --space | jq -r '.index') layout bsp
 
-# Spotifyd
-# ctrl + alt - right : /usr/local/bin/spt playback --next 
-# ctrl + alt - left : /usr/local/bin/spt playback --previous 
-# ctrl + alt - down : /usr/local/bin/spt playback --toggle 
+hyper - return : yabai -m window --toggle topmost

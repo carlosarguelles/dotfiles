@@ -7,13 +7,13 @@
     "snippets": [
       {
         "language": [
-          "rmd"
+          "rmarkdown"
         ],
         "path": "./snippets/rmarkdown.json"
       },
       {
         "language": [
-          "rmd",
+          "rmarkdown",
           "plaintex",
           "tex"
         ],

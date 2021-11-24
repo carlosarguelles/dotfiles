@@ -1,5 +1,5 @@
 alias v "nvim"
-alias vconf "cd ~/.config/nvim && v ~/.config/nvim"
+alias vconf "cd ~/.config/nvim && v"
 
 alias yta "youtube-dl --extract-audio --audio-format mp3 --output '~/Downloads/%(title)s.%(ext)s'" 
 

@@ -1,0 +1,35 @@
+format = """
+$directory$git_branch$git_commit$git_state$git_status
+"""
+scan_timeout = 60
+add_newline = false
+# 
+[directory]
+style = "bright-blue"
+format = "[$path]($style) "
+# 
+[username]
+disabled = false
+format = "[\\[ $user]($style)"
+show_always = true
+# 
+[hostname]
+ssh_only = false
+style = "bold blue"
+format = "[$hostname \\]]($style)"
+disabled = false
+# 
+# [cmd_duration]
+# format = "[$duration](bold yellow)"
+# 
+[git_branch]
+format = "[$symbol$branch]($style) "
+# 
+
+[character]
+success_symbol = "[->](bold purple)"
+error_symbol = "[->](bold red)"
+vicmd_symbol = "[<-](bold green)"
+
+[package]
+disabled = true
