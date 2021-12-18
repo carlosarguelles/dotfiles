@@ -25,6 +25,7 @@ set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH 
 
 set -gx PATH $HOME/.cargo/bin $PATH
+set -gx PATH $HOME/.composer/vendor/bin $PATH
 
 set -gx PATH /usr/local/opt/openjdk/bin $PATH
 set -gx CPPFLAGS "-I/usr/local/opt/openjdk/include"
@@ -34,4 +35,4 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/lf_icons.fish
 source ~/.config/fish/colors.fish
 
-starship init fish | source
+# starship init fish | source
