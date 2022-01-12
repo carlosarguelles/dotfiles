@@ -27,8 +27,9 @@ hyper - 9 : yabai -m space --focus last
 hyper - t : yabai -m space --focus 3
 hyper - w : yabai -m space --focus 2
 hyper - a : yabai -m space --focus 1
-hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Firefox"))[0].space') | xargs -I{} yabai -m space --focus {} 
-hyper - s : (yabai -m query --windows | jq -er 'map(select(.app == "Spotify"))[0].space') | xargs -I{} yabai -m space --focus {} || (yabai -m query --windows | jq -er 'map(select(.app == "TIDAL"))[0].space') | xargs -I{} yabai -m space --focus {}
+# hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Firefox"))[0].space') | xargs -I{} yabai -m space --focus {} 
+hyper - b : (yabai -m query --windows | jq -er 'map(select(.app == "Google Chrome"))[0].space') | xargs -I{} yabai -m space --focus {} 
+hyper - s : (yabai -m query --windows | jq -er 'map(select(.app == "Spotify"))[0].space') | xargs -I{} yabai -m space --focus {}
 hyper - v : (yabai -m query --windows | jq -er 'map(select(.app == "mpv"))[0].space') | xargs -I{} yabai -m space --focus {}
 hyper - m : (yabai -m query --windows | jq -er 'map(select(.app == "Spark"))[0].space') | xargs -I{} yabai -m space --focus {}
 alt - o : yabai -m space --focus recent

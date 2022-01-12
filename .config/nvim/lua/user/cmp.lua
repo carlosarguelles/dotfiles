@@ -125,3 +125,8 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+vim.cmd [[
+  autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+  let g:vim_dadbod_completion_mark = 'DB'
+]]

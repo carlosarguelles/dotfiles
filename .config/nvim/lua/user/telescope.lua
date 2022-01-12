@@ -1,16 +1,27 @@
-local actions = require('telescope.actions')
-require('telescope').setup {
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+
+telescope.setup {
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
     file_ignore_patterns = {
       "node_modules",
-      ".git"
+      ".git",
+      "dist",
     },
     mappings = {
       n = {
         ["q"] = actions.close
       },
     },
-  }
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+      no_ignore = true
+    },
+  },
 }
+
+telescope.load_extension("harpoon")

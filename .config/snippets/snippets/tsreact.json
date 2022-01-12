@@ -27,11 +27,9 @@
       "$1",
       "}",
       "",
-      "const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+      "export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
       "\t\treturn ($3);",
-      "}",
-      "",
-      "export\tdefault $TM_FILENAME_BASE;"
+      "}"
     ],
     "description": "Typescript React Function Component"
   },

@@ -1,7 +1,7 @@
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -22,23 +22,30 @@ packer.startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Utils
+  use "tpope/vim-fugitive"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use {
-    'numToStr/Comment.nvim',
-    config = function() require('Comment').setup() end
-  }
+  use 'numToStr/Comment.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'windwp/nvim-autopairs' -- Autopairs
   use 'christoomey/vim-tmux-navigator' -- Tmux navigation
+  use 'sbdchd/neoformat'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
-  -- Nord
+  -- Colorschemes
   use 'shaunsingh/nord.nvim'
+  use 'Mofiqul/vscode.nvim'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
+  -- use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- DBUI
   use 'tpope/vim-dadbod'
@@ -62,14 +69,41 @@ packer.startup(function()
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Treesitter
-   use {
+  use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
   use "p00f/nvim-ts-rainbow"
-  
+
+  -- TS
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'mattn/emmet-vim'
+
+  -- Harpoon
+  use {
+    'ThePrimeagen/harpoon',
+    config = function ()
+      require("harpoon").setup({})
+    end
+  }
+
+  -- RMarkdown
+  use 'vim-pandoc/vim-pandoc'
+  use 'vim-pandoc/vim-pandoc-syntax'
+  use 'vim-pandoc/vim-rmarkdown'
+
+  -- Copilot
+  use 'github/copilot.vim'
+  use 'hrsh7th/cmp-copilot'
+
+  -- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
