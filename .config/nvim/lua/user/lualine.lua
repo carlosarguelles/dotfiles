@@ -81,7 +81,7 @@ table.insert(config.sections.lualine_a, {
 ins_left({
   'branch',
   icon = '',
-  color = { fg = colors.orange, gui = 'bold' },
+  color = { fg = colors.fg, gui = 'bold' },
   cond = conditions.hide_in_width
 })
 
