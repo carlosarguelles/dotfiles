@@ -5,6 +5,6 @@ require("nvim-tree").setup{
     width = 30
   },
   git = {
-    enable = false,
+    enable = true,
   }
 }

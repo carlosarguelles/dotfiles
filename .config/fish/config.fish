@@ -1,6 +1,7 @@
 #!/usr/local/bin/fish
 
 fish_vi_key_bindings
+set -U fish_cursor_default block
 set fish_greeting ""
 
 set -gx EDITOR nvim
