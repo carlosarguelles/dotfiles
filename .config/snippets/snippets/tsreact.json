@@ -11,13 +11,11 @@
     ],
     "description": "Typescript React PureComponent"
   },
-
   "Twind": {
     "prefix": "cc",
     "body": ["className={tw`$1`}"],
     "description": "Twind"
   },
-
   "Typescript React Function Component": {
     "prefix": "rh",
     "body": [
@@ -33,46 +31,22 @@
     ],
     "description": "Typescript React Function Component"
   },
-  "React Native StyleSheet": {
-    "prefix": "rnss",
-    "body": [
-      "import {StyleSheet} from 'react-native'",
-      "const styles = StyleSheet.create({",
-      "",
-      "});"
-    ],
-    "description": "React Native StyleSheet"
-  },
-  "Toggle State": {
-    "prefix": "tog",
-    "body": ["this.setState(state => ({", "\topen: !state.open", "}));"],
-    "description": "toggle state"
-  },
-  "console.log": {
-    "prefix": "cl",
-    "body": ["console.log($1)"],
-    "description": "console.log"
-  },
-  "className={classnames()}": {
+  "className={}": {
     "prefix": "cc",
-    "body": ["className={classnames('$1')}"],
-    "description": "tailwind react stuff"
+    "body": ["className={'$1'}"],
+    "description": "classNamea"
   },
-  "Apollo Query Component": {
-    "prefix": "apq",
+  "Next Page Apollo": {
+    "prefix": "npa",
     "body": [
-      "interface Props {",
-      "  children: (data: QueryResult<$1, OperationVariables>) => JSX.Element;",
+      "import { NextPage } from 'next'",
+      "",
+      "const $TM_FILENAME_BASE: NextPage = () => {",
+      "  return ($1)",
       "}",
       "",
-      "export class $2 extends React.PureComponent<Props> {",
-      "  render() {",
-      "    return (",
-      "     <Query<$1> query={$3}>{x => this.props.children(x)}</Query>",
-      "    );",
-      "  }",
-      "}"
+      "export default withApollo({ $2 })($TM_FILENAME_BASE)"
     ],
-    "description": "Apollo Query Component"
+    "description": "Next Page Apollo"
   }
 }

@@ -22,6 +22,7 @@ set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 
 set -gx PATH /Library/TeX/texbin/ $PATH
 
+set -gx PATH /usr/local/go/bin/ $PATH
 set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH 
 

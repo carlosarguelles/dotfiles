@@ -24,6 +24,14 @@
       {
         "language": "typescriptreact",
         "path": "./snippets/tsreact.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/ts.json"
+      },
+      {
+        "language": "all",
+        "path": "./snippets/andrea.json"
       }
     ]
   }

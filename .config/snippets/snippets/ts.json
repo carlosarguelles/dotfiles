@@ -1,0 +1,52 @@
+{
+  "console.log": {
+    "prefix": "cl",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "dao": {
+    "prefix": "dao",
+    "body": [
+      "interface I${TM_FILENAME_BASE} {",
+      "\t$1",
+      "}",
+      "",
+      "class ${TM_FILENAME_BASE} implements I${TM_FILENAME_BASE} {",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ],
+    "description": "Comun dao"
+  },
+  "sequelize model": {
+    "prefix": "sqlmodel",
+    "body": [
+      "import { Model } from \"sequelize\"",
+      "",
+      "export interface I${TM_FILENAME_BASE} {",
+      "\t$1",
+      "}",
+      "",
+      "export class ${TM_FILENAME_BASE} extends Model<I${TM_FILENAME_BASE}> implements I${TM_FILENAME_BASE} { ",
+      "}",
+      "",
+      "${TM_FILENAME_BASE}.init(init<I${TM_FILENAME_BASE}>({}), {})"
+    ]
+  },
+  "public async": {
+    "prefix": "pubas",
+    "body": ["public async $1 {", "\t$2", "}"]
+  },
+  "Express callback": {
+    "prefix": "expc",
+    "body": ["async (req: Request, res: Response) => {", "$1", "}"]
+  },
+  "Export default": {
+    "prefix": "exdef",
+    "body": ["export default $1"]
+  },
+  "import default": {
+    "prefix": "idf",
+    "body": ["import $1 from \"$2\""]
+  }
+}
