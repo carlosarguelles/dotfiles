@@ -1,28 +1,17 @@
 -- Inspired by evil_line: https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
+--
+-- gps
+local gps = require("nvim-gps")
+
+gps.setup()
 
 local lualine = require('lualine')
 
-local colors = {
-  bg       = '#2E3440',
-  fg       = '#E5E9F0',
-  yellow   = '#EBCB8B',
-  cyan     = '#88C0D0',
-  darkblue = '#5E81AC',
-  green    = '#A3BE8C',
-  orange   = '#D08770',
-  violet   = '#B48EAD',
-  magenta  = '#B48EAD',
-  blue     = '#81A1C1',
-  red      = '#BF616A',
-  polar    = '#3B4252'
-}
+local colors = require('user.colors.nord')
 
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
   end,
   check_git_workspace = function()
     local filepath = vim.fn.expand('%:p:h')
@@ -33,6 +22,7 @@ local conditions = {
 
 local config = {
   options = {
+    globalstatus = true,
     component_separators = '',
     section_separators = '',
     theme = {
@@ -75,14 +65,30 @@ end
 table.insert(config.sections.lualine_a, {
   'mode',
   fmt = function(str) return str:sub(1,1):upper() .. str:sub(2):lower() end,
-  cond = conditions.hide_in_width
 })
 
 ins_left({
   'branch',
   icon = '',
   color = { fg = colors.fg, gui = 'bold' },
-  cond = conditions.hide_in_width
+})
+
+ins_left({
+  'filetype',
+  colored = true,
+  icon_only = true
+})
+
+ins_left({
+  'filename',
+  icons_enabled = true,
+  path = 1,
+  color = { fg = colors.fg, gui = 'bold' },
+})
+
+ins_left({
+  gps.get_location,
+  cond = gps.is_available,
 })
 
 ins_left({
@@ -102,20 +108,6 @@ ins_left({
   end,
 })
 
-ins_left({
-  'filetype',
-  colored = false,
-  icon_only = true
-})
-
-ins_left({
-  'filename',
-  icons_enabled = true,
-  path = 1,
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.fg, gui = 'bold' },
-})
-
 ins_right({
   'diff',
   symbols = { added = ' ', modified = '柳 ', removed = ' ' },
@@ -124,14 +116,12 @@ ins_right({
     modified = { fg = colors.orange },
     removed = { fg = colors.red },
   },
-  cond = conditions.hide_in_width,
 })
 
 ins_right({
   'location',
   color = { fg = colors.fg },
   fmt = function(s) return '[' .. s .. ']' end,
-  cond = conditions.hide_in_width
 })
 
 ins_right({ 'progress', color = { fg = colors.fg, gui = 'bold' }, cond = conditions.hide_in_width })
@@ -152,8 +142,7 @@ ins_right({
     end
     return msg
   end,
-  color = { fg = colors.cyan, gui = 'bold' },
-  cond = conditions.hide_in_width
+  color = { fg = colors.yellow, gui = 'bold'},
 })
 
 lualine.setup(config)

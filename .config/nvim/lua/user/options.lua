@@ -29,6 +29,7 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
   guicursor = "",
+  lazyredraw = true
 }
 
 vim.opt.shortmess:append "c"

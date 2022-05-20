@@ -1,33 +1,30 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not lsp_installer_ok then
 	return
 end
 
-lsp_installer.on_server_ready(function(server)
+local lsp_ok, lspconfig = pcall(require, "lspconfig")
+if not lsp_ok then
+	return
+end
+
+local servers = { "diagnosticls", "tsserver", "sumneko_lua", "volar" }
+
+lsp_installer.setup {
+  ensure_installed = servers
+}
+
+for _, server in pairs(servers) do
   local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  if server.name == "diagnosticls" then
-    local diagnosticls_opts = require("user.lsp.settings.diagnosticls")
-    opts = vim.tbl_deep_extend("force", diagnosticls_opts, opts)
+  local has_custom_opts, custom_opts = pcall(require, "user.lsp.settings" .. server)
+
+  if has_custom_opts then
+    opts = vim.tbl_deep_extend("force", custom_opts, opts)
   end
 
-  if server.name == "tsserver" then
-    local tsserver_opts = require("user.lsp.settings.tsserver")
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-  end
-
-  if server.name == "sumneko_lua" then
-    local sumneko_opts = require("user.lsp.settings.sumneko-lua")
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-  end
-
-  if server.name == "tailwindcss" then
-    local tailwind_opts = require("user.lsp.settings.tailwindcss")
-    opts = vim.tbl_deep_extend("force", tailwind_opts, opts)
-  end
-
-  server:setup(opts)
-end)
+  lspconfig[server].setup(opts)
+end

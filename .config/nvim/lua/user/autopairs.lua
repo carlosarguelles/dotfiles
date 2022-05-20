@@ -5,7 +5,7 @@ npairs.setup {
   check_ts = true,
   fast_wrap = {
     map = '<M-e>',
-    chars = { '{', '[', '(', '"', "'" },
+    chars = { '{', '[', '(', '"', "'", '`', '¿' },
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     end_key = '$',
     keys = 'qwertyuiopzxcvbnmasdfghjkl',
@@ -38,6 +38,12 @@ npairs.add_rules {
     return opts.prev_char:match('.%]') ~= nil
   end)
   :use_key(']'),
+  Rule('¿ ', ' ?')
+  :with_pair(function() return false end)
+  :with_move(function(opts)
+    return opts.prev_char:match('.%?') ~= nil
+  end)
+  :use_key('?'),
 }
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"

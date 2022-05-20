@@ -33,6 +33,7 @@ keymap("n", "<Leader>,", "m`A,<Esc>``", opts)
 
 -- Source file
 keymap("n", "<Leader>so", ':so %<CR>', opts)
+keymap("n", "<Leader>sv", ':so $HOME/.config/nvim/init.lua<CR>', opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
@@ -47,6 +48,9 @@ keymap("n", "<Leader>du", "<cmd>DBUIToggle<CR>", opts)
 keymap("n", "<Leader>df", "<cmd>DBUIFindBuffer<CR>", opts)
 keymap("n", "<Leader>dr", "<cmd>DBUIRenameBuffer<CR>", opts)
 keymap("n", "<Leader>dl", "<cmd>DBUILastQueryInfo<CR>", opts)
+
+-- Lsp
+keymap("n", "<Leader>lr", "<cmd>LspRestart<CR>", opts)
 
 -- Nvim Tree
 keymap("n", "<C-e>", "<cmd>NvimTreeToggle<CR>", opts)

@@ -41,7 +41,6 @@ packer.startup(function()
 
   -- Colorschemes
   use 'shaunsingh/nord.nvim'
-  -- use 'arcticicestudio/nord-vim'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
@@ -72,7 +71,6 @@ packer.startup(function()
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
   }
 
   use "JoosepAlviste/nvim-ts-context-commentstring"
@@ -95,6 +93,7 @@ packer.startup(function()
   use 'vim-pandoc/vim-pandoc'
   use 'vim-pandoc/vim-pandoc-syntax'
   use 'vim-pandoc/vim-rmarkdown'
+  use 'dhruvasagar/vim-table-mode'
 
   -- Copilot
   use 'Lucklyric/copilot.vim'
@@ -103,9 +102,19 @@ packer.startup(function()
   -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use 'tjdevries/express_line.nvim'
+
+  use {
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
+    run = 'cd app && yarn install'
+  }
+
+  -- mdx
+  use 'jxnblk/vim-mdx-js'
+
+  use 'SmiteshP/nvim-gps'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
