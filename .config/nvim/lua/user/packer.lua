@@ -1,122 +1,122 @@
-vim.cmd [[
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost packer.lua source <afile> | PackerSync
   augroup end
-]]
+]])
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+	return
 end
 
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
 
 packer.startup(function()
-  use 'wbthomason/packer.nvim'
+	use("wbthomason/packer.nvim")
 
-  -- Utils
-  use "tpope/vim-fugitive"
-  use "nvim-lua/popup.nvim"
-  use "nvim-lua/plenary.nvim"
-  use 'numToStr/Comment.nvim'
-  use 'kyazdani42/nvim-tree.lua'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-  use 'windwp/nvim-autopairs' -- Autopairs
-  use 'christoomey/vim-tmux-navigator' -- Tmux navigation
-  use 'sbdchd/neoformat'
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
+	-- Utils
+	use("tpope/vim-fugitive")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("numToStr/Comment.nvim")
+	use("kyazdani42/nvim-tree.lua")
+	use("tpope/vim-surround")
+	use("tpope/vim-repeat")
+	use("windwp/nvim-autopairs") -- Autopairs
+	use("christoomey/vim-tmux-navigator") -- Tmux navigation
+	use("sbdchd/neoformat")
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+  -- use("lukas-reineke/indent-blankline.nvim")
 
-  -- Colorschemes
-  use 'shaunsingh/nord.nvim'
+	-- Colorschemes
+	use("shaunsingh/nord.nvim")
+	use("folke/tokyonight.nvim")
+	use("gruvbox-community/gruvbox")
+	use "Yazeed1s/minimal.nvim"
 
-  -- Telescope
-  use 'nvim-telescope/telescope.nvim'
-  -- use 'nvim-telescope/telescope-file-browser.nvim'
+	-- Telescope
+	use("nvim-telescope/telescope.nvim")
+	-- use 'nvim-telescope/telescope-file-browser.nvim'
 
-  -- DBUI
-  use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-completion'
-  use 'kristijanhusak/vim-dadbod-ui'
+	-- DBUI
+	use("tpope/vim-dadbod")
+	use("kristijanhusak/vim-dadbod-completion")
+	use("kristijanhusak/vim-dadbod-ui")
 
-  -- cmp
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+	-- cmp
+	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/cmp-buffer") -- buffer completions
+	use("hrsh7th/cmp-path") -- path completions
+	use("hrsh7th/cmp-cmdline") -- cmdline completions
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("hrsh7th/cmp-nvim-lsp")
 
-  -- LSP
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 
-  -- Snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	-- Snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-  -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "windwp/nvim-ts-autotag"
-  use "p00f/nvim-ts-rainbow"
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("windwp/nvim-ts-autotag")
+	use("p00f/nvim-ts-rainbow")
 
-  -- TS
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use 'mattn/emmet-vim'
+	-- TS
+	use("jose-elias-alvarez/nvim-lsp-ts-utils")
+	use("mattn/emmet-vim")
 
-  -- Harpoon
-  use {
-    'ThePrimeagen/harpoon',
-    config = function ()
-      require("harpoon").setup({})
-    end
-  }
+	-- RMarkdown
+	use("vim-pandoc/vim-pandoc")
+	use("vim-pandoc/vim-pandoc-syntax")
+	use("vim-pandoc/vim-rmarkdown")
+	use("dhruvasagar/vim-table-mode")
 
-  -- RMarkdown
-  use 'vim-pandoc/vim-pandoc'
-  use 'vim-pandoc/vim-pandoc-syntax'
-  use 'vim-pandoc/vim-rmarkdown'
-  use 'dhruvasagar/vim-table-mode'
+	-- Copilot
+	use("Lucklyric/copilot.vim")
+	use("hrsh7th/cmp-copilot")
 
-  -- Copilot
-  use 'Lucklyric/copilot.vim'
-  use 'hrsh7th/cmp-copilot'
+	-- Lualine
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
-  -- Lualine
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+	use({
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		run = "cd app && yarn install",
+	})
 
-  use {
-    'iamcco/markdown-preview.nvim',
-    ft = 'markdown',
-    run = 'cd app && yarn install'
-  }
+	-- mdx
+	use("jxnblk/vim-mdx-js")
 
-  -- mdx
-  use 'jxnblk/vim-mdx-js'
+	use("SmiteshP/nvim-gps")
 
-  use 'SmiteshP/nvim-gps'
+	use("RRethy/vim-illuminate")
 
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+	use("jose-elias-alvarez/null-ls.nvim")
+
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)

@@ -32,16 +32,19 @@ keymap("n", "<Leader>;", "m`A;<Esc>``", opts)
 keymap("n", "<Leader>,", "m`A,<Esc>``", opts)
 
 -- Source file
-keymap("n", "<Leader>so", ':so %<CR>', opts)
-keymap("n", "<Leader>sv", ':so $HOME/.config/nvim/init.lua<CR>', opts)
+keymap("n", "<Leader>so", ":so %<CR>", opts)
+keymap("n", "<Leader>sv", ":so /Users/carlos/.config/nvim/init.lua <CR>", opts)
+
+-- Git
+keymap("n", "<Leader>g", "<cmd>G<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<C-f>", "<cmd>Telescope git_files<CR>", opts)
+keymap("n", ";u", "<cmd>Telescope git_status<CR>", opts)
 keymap("n", ";g", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", ";;", "<cmd>Telescope help_tags<CR>", opts)
-keymap("n", ";h", "<cmd>Telescope harpoon marks<CR>", opts)
 
 -- DBUI
 keymap("n", "<Leader>du", "<cmd>DBUIToggle<CR>", opts)
@@ -54,10 +57,3 @@ keymap("n", "<Leader>lr", "<cmd>LspRestart<CR>", opts)
 
 -- Nvim Tree
 keymap("n", "<C-e>", "<cmd>NvimTreeToggle<CR>", opts)
-
--- Harpoon
-keymap("n", "<Leader>h", '<cmd>lua require("harpoon.mark").add_file()<CR>', opts)
-keymap("n", "h1", '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', opts)
-keymap("n", "h2", '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', opts)
-keymap("n", "h3", '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', opts)
-keymap("n", "h4", '<cmd>lua require("harpoon.ui").nav_file(4)<CR>', opts)
