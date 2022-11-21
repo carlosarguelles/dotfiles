@@ -25,18 +25,18 @@ local config = {
 		globalstatus = true,
 		component_separators = "",
 		section_separators = "",
-	-- 	theme = "minimal",
-	-- -- },
-	  theme = {
-	    normal = {
-	      a = { fg = colors.yellow, bg = colors.bg, gui = 'bold' },
-	      c = { fg = colors.fg, bg = colors.polar }
-	    },
-	    insert = { a = { fg = colors.green, bg = colors.bg, gui = 'bold' } },
-	    visual = { a = { fg = colors.violet, bg = colors.bg, gui = 'bold' } },
-	    replace = { a = { fg = colors.cyan, bg = colors.bg, gui = 'bold' } },
-	    inactive = { c = { fg = colors.fg, bg = colors.polar } },
-	  },
+		-- 	theme = "minimal",
+		-- -- },
+		theme = {
+			normal = {
+				a = { fg = colors.yellow, bg = colors.bg, gui = "bold" },
+				c = { fg = colors.fg, bg = colors.polar },
+			},
+			insert = { a = { fg = colors.green, bg = colors.bg, gui = "bold" } },
+			visual = { a = { fg = colors.violet, bg = colors.bg, gui = "bold" } },
+			replace = { a = { fg = colors.cyan, bg = colors.bg, gui = "bold" } },
+			inactive = { c = { fg = colors.fg, bg = colors.polar } },
+		},
 	},
 	sections = {
 		lualine_a = {},
@@ -74,7 +74,7 @@ table.insert(config.sections.lualine_a, {
 ins_left({
 	"branch",
 	icon = "",
-	color = { fg = colors.orange, gui = 'bold' },
+	color = { fg = colors.orange, gui = "bold" },
 })
 
 ins_left({
@@ -87,7 +87,7 @@ ins_left({
 	"filename",
 	icons_enabled = true,
 	path = 1,
-	color = { fg = colors.fg, gui = 'bold' },
+	color = { fg = colors.fg, gui = "bold" },
 })
 
 ins_left({
@@ -100,9 +100,9 @@ ins_left({
 	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", info = " " },
 	diagnostics_color = {
-	  color_error = { fg = colors.red },
-	  color_warn = { fg = colors.yellow },
-	  color_info = { fg = colors.cyan },
+		color_error = { fg = colors.red },
+		color_warn = { fg = colors.yellow },
+		color_info = { fg = colors.cyan },
 	},
 })
 
@@ -116,9 +116,9 @@ ins_right({
 	"diff",
 	symbols = { added = " ", modified = "柳 ", removed = " " },
 	diff_color = {
-	  added = { fg = colors.green },
-	  modified = { fg = colors.orange },
-	  removed = { fg = colors.red },
+		added = { fg = colors.green },
+		modified = { fg = colors.orange },
+		removed = { fg = colors.red },
 	},
 })
 

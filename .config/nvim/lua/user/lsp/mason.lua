@@ -1,5 +1,10 @@
-local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not lsp_installer_ok then
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+	return
+end
+
+local mason_lsp_config_ok, mason_lsp_config = pcall(require, "mason")
+if not mason_ok then
 	return
 end
 
@@ -7,6 +12,8 @@ local lsp_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_ok then
 	return
 end
+
+mason.setup()
 
 local servers = {
 	"tsserver",
@@ -25,8 +32,9 @@ local servers = {
   "intelephense",
 }
 
-lsp_installer.setup({
+mason_lsp_config.setup({
 	ensure_installed = servers,
+  automatic_installation = true,
 })
 
 for _, server in pairs(servers) do

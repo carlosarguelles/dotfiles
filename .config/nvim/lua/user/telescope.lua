@@ -10,6 +10,9 @@ telescope.setup {
       ".git",
       "dist",
     },
+    path_display = {
+      shorten = 3
+    },
     mappings = {
       n = {
         ["q"] = actions.close

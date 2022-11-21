@@ -41,26 +41,6 @@ M.setup = function()
 	})
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-local function lsp_format_on_save(client, bufnr)
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					filter = function(client)
-						return client.name ~= "tsserver"
-					end,
-				})
-			end,
-		})
-	end
-end
-
 local function lsp_highlight_document(client)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
@@ -88,26 +68,50 @@ local function lsp_keymaps(bufnr)
 	buf_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
 	buf_set_keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ bufnr = bufnr, filter = function(client) return client.name ~= 'tsserver' end, })<CR>", opts)
+	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+end
+
+local augroup = vim.api.nvim_create_augroup("LspOwnFormatting", {})
+
+local function lsp_fmt_on_save(bufnr, client)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+				})
+			end,
+		})
+	end
 end
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false
 		local ts_utils = require("user.lsp.settings.ts-utils")
 		ts_utils(client, bufnr, opts)
 	end
+
+	if client.name == "sumneko_lua" then
+		client.server_capabilities.documentFormattingProvider = false
+	end
+
+	if client.name == "volar" then
+		client.server_capabilities.documentFormattingProvider = false
+	end
+	lsp_fmt_on_save(bufnr, client)
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-  lsp_format_on_save(client, bufnr)
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 return M

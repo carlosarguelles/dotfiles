@@ -38,13 +38,12 @@ packer.startup(function()
 			require("gitsigns").setup()
 		end,
 	})
-  -- use("lukas-reineke/indent-blankline.nvim")
+	-- use("lukas-reineke/indent-blankline.nvim")
 
-	-- Colorschemes
+	-- Nord. The greatest colorscheme ever.
 	use("shaunsingh/nord.nvim")
 	use("folke/tokyonight.nvim")
-	use("gruvbox-community/gruvbox")
-	use "Yazeed1s/minimal.nvim"
+	use("EdenEast/nightfox.nvim") -- Packer
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -65,7 +64,8 @@ packer.startup(function()
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
@@ -96,9 +96,15 @@ packer.startup(function()
 	use("hrsh7th/cmp-copilot")
 
 	-- Lualine
+	use("nvim-lualine/lualine.nvim")
+
 	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup({
+				default = true,
+			})
+		end,
 	})
 
 	use({
@@ -115,6 +121,12 @@ packer.startup(function()
 	use("RRethy/vim-illuminate")
 
 	use("jose-elias-alvarez/null-ls.nvim")
+
+	use("MunifTanjim/prettier.nvim")
+
+	use("jayp0521/mason-null-ls.nvim")
+
+	use("ldelossa/gh.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
