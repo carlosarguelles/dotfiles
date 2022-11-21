@@ -32,6 +32,10 @@
       {
         "language": "all",
         "path": "./snippets/andrea.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/andreabackend.json"
       }
     ]
   }
