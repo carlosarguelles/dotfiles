@@ -34,7 +34,6 @@ set -gx CPPFLAGS "-I/usr/local/opt/openjdk/include"
 set -gx JAVA_HOME /usr/local/Cellar/openjdk/16.0.2/libexec/openjdk.jdk/Contents/Home
 
 source ~/.config/fish/aliases.fish
-source ~/.config/fish/lf_icons.fish
 source ~/.config/fish/colors.fish
 
 # starship init fish | source
