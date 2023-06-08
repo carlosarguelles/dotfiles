@@ -26,6 +26,10 @@
         "path": "./snippets/tsreact.json"
       },
       {
+        "language": "typescriptreact",
+        "path": "./snippets/next-ts.json"
+      },
+      {
         "language": "typescript",
         "path": "./snippets/ts.json"
       },
