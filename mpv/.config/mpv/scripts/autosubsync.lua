@@ -7,7 +7,7 @@ local mpopt = require('mp.options')
 -- Options can be changed here or in a separate config file.
 -- Config path: ~/.config/mpv/script-opts/autosubsync.conf
 local config = {
-    subsync_path = "/Users/carlos/.pyenv/shims/ffsubsync"  -- Replace the following line if the location of ffsubsync differs from the defaults
+    subsync_path = "/usr/local/bin/ffsubsync"  -- Replace the following line if the location of ffsubsync differs from the defaults
 }
 mpopt.read_options(config, 'autosubsync')
 
@@ -111,4 +111,4 @@ end
 if config.subsync_path == "" then
     config.subsync_path = get_default_subsync_path()
 end
-mp.add_key_binding("n", "auto_sync_subs", sync_sub_fn)
+mp.add_key_binding("S", "auto_sync_subs", sync_sub_fn)
