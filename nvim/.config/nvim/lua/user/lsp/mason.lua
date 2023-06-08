@@ -17,24 +17,27 @@ mason.setup()
 
 local servers = {
 	"tsserver",
-	"sumneko_lua",
+	"lua_ls",
 	"volar",
 	"gopls",
-	"graphql",
 	"prismals",
 	"texlab",
 	"pyright",
 	"svelte",
-  "tailwindcss",
-  "elixirls",
-  "rust_analyzer",
-  "omnisharp",
-  "intelephense",
+	"tailwindcss",
+	"elixirls",
+	"rust_analyzer",
+	"omnisharp",
+	"intelephense",
+	"arduino_language_server",
+	"clangd",
+	"jdtls",
+	"hls",
 }
 
 mason_lsp_config.setup({
 	ensure_installed = servers,
-  automatic_installation = true,
+	automatic_installation = true,
 })
 
 for _, server in pairs(servers) do

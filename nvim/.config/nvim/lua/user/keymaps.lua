@@ -36,7 +36,9 @@ keymap("n", "<Leader>so", ":so %<CR>", opts)
 keymap("n", "<Leader>sv", ":so /Users/carlos/.config/nvim/init.lua <CR>", opts)
 
 -- Git
-keymap("n", "<Leader>g", "<cmd>G<CR>", opts)
+keymap("n", "<Leader>gs", "<cmd>G<CR>", opts)
+keymap("n", "<Leader>gw", "<cmd>Gwrite<CR>", opts)
+keymap("n", "<Leader>gc", "<cmd>G commit<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)

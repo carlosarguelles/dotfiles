@@ -30,7 +30,7 @@ local config = {
 		theme = {
 			normal = {
 				a = { fg = colors.yellow, bg = colors.bg, gui = "bold" },
-				c = { fg = colors.fg, bg = colors.polar },
+				c = { fg = colors.fg, bg = colors.bg1 },
 			},
 			insert = { a = { fg = colors.green, bg = colors.bg, gui = "bold" } },
 			visual = { a = { fg = colors.violet, bg = colors.bg, gui = "bold" } },

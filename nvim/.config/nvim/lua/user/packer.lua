@@ -128,6 +128,14 @@ packer.startup(function()
 
 	use("ldelossa/gh.nvim")
 
+	use("sainnhe/gruvbox-material")
+
+	use("mfussenegger/nvim-jdtls")
+
+	use({ "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } })
+
+	use("Exafunction/codeium.vim")
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
