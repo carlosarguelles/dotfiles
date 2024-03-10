@@ -1,7 +1,0 @@
-hyper - t : osascript -e 'tell application "kitty" to activate'
-hyper - b : osascript -e 'tell application "Google Chrome" to activate'
-hyper - s : osascript -e 'tell application "Slack" to activate'
-hyper - c : osascript -e 'tell application "Spark" to activate'
-hyper - m : osascript -e 'tell application "Spotify" to activate'
-
-ctrl + alt + cmd - r : brew services restart skhd
