@@ -83,6 +83,6 @@ return {
   end,
   keys = {
     { "<leader>e", false },
-    { "<C-t>", "<cmd>Neotree toggle<cr>", desc = "Toggle Tree" },
+    { "<C-e>", "<cmd>Neotree toggle<cr>", desc = "Toggle Tree" },
   },
 }

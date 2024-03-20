@@ -44,7 +44,6 @@ return {
     { "<leader><space>", false },
     { "<leader>,", false },
     { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    { "<C-e>", "<cmd>Telescope find_files<cr>", desc = "Find Files 2" },
     { "<C-f>", "<cmd>Telescope git_files<cr>", desc = "Find Git Files" },
     { ";b", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
     { ";g", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
