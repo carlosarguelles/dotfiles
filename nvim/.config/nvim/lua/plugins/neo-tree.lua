@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   config = function()
     local icons = require("lazyvim.config").icons
     require("neo-tree").setup({
@@ -83,6 +84,6 @@ return {
   end,
   keys = {
     { "<leader>e", false },
-    { "<C-e>", "<cmd>Neotree toggle<cr>", desc = "Toggle Tree" },
+    { "<C-t>", "<cmd>Neotree toggle<cr>", desc = "Toggle Tree" },
   },
 }
