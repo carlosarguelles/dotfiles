@@ -20,34 +20,50 @@ return {
 
     local colors = require("colors.nord")
 
-    local conditions = {
-      buffer_not_empty = function()
-        return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-      end,
-      check_git_workspace = function()
-        local filepath = vim.fn.expand("%:p:h")
-        local gitdir = vim.fn.finddir(".git", filepath .. ";")
-        return gitdir and #gitdir > 0 and #gitdir < #filepath
-      end,
-    }
-
     local config = {
       options = {
         globalstatus = true,
         component_separators = "",
         section_separators = "",
         disabled_filetypes = {
-          statusline = { "dashboard", "alpha", "starter", "TelescopePrompt", "neo-tree", "fugitive" },
+          statusline = {
+            "dashboard",
+            "alpha",
+            "starter",
+            "TelescopePrompt",
+            "neo-tree",
+            "fugitive",
+            "oil",
+            "terminal",
+            "lazyterm",
+          },
         },
         theme = {
           normal = {
             a = { fg = colors.yellow, bg = colors.bg },
-            c = { fg = colors.fg, bg = colors.bg1 },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
           },
-          insert = { a = { fg = colors.green, bg = colors.bg } },
-          visual = { a = { fg = colors.violet, bg = colors.bg } },
-          replace = { a = { fg = colors.cyan, bg = colors.bg } },
-          inactive = { c = { fg = colors.fg, bg = colors.polar } },
+          insert = {
+            a = { fg = colors.green, bg = colors.bg },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
+          },
+          visual = {
+            a = { fg = colors.violet, bg = colors.bg },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
+          },
+          replace = {
+            a = { fg = colors.cyan, bg = colors.bg },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
+          },
+          inactive = {
+            a = { fg = colors.fg, bg = colors.polar },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
+          },
         },
       },
       sections = {
@@ -80,7 +96,7 @@ return {
     table.insert(config.sections.lualine_a, {
       "mode",
       fmt = function(str)
-        return str:sub(1, 1):upper() .. str:sub(2):lower()
+        return str:sub(1, 1):lower()
       end,
       color = nil,
     })
@@ -140,9 +156,33 @@ return {
     })
 
     ins_right({
+      "selectioncount",
+      color = { fg = colors.fg },
+      fmt = function(s)
+        if s == "" then
+          return ""
+        else
+          return "(" .. s .. ")"
+        end
+      end,
+    })
+
+    ins_right({
+      "macrorecording",
+      color = { fg = colors.fg },
+      fmt = function()
+        local recording_register = vim.fn.reg_recording()
+        if recording_register == "" then
+          return ""
+        else
+          return "Recording @" .. recording_register
+        end
+      end,
+    })
+
+    ins_right({
       "progress",
       color = { fg = colors.fg, gui = "bold" },
-      cond = conditions.hide_in_width,
     })
 
     ins_right({
