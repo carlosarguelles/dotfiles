@@ -19,3 +19,5 @@ gui:
      - "#88c0d0"
    inactiveBorderColor:
      - "#4c566a"
+git:
+  parseEmoji: true
