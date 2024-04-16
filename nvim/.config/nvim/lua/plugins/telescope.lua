@@ -33,6 +33,7 @@ return {
       pickers = {
         find_files = {
           hidden = true,
+          path_display = { "truncate" },
         },
       },
     }
