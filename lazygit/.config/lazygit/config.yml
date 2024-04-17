@@ -24,16 +24,20 @@ git:
 customCommands:
   - key: '<c-c>'
     context: 'global'
-    command: "git commit -m '{{.Form.GitmojiType}} {{.Form.Description}}'"
+    command: 'scope="{{.Form.Scope}}"; if [ -z "$scope" ]; then git commit -m "{{.Form.Emoji}} {{.Form.Description}}"; else git commit -m "{{.Form.Emoji}} ({{.Form.Scope}}): {{.Form.Description}}"; fi'
     prompts:
       - type: 'menuFromCommand'
         title: 'What kind of change is it?'
-        key: 'GitmojiType'
+        key: 'Emoji'
         command: 'gitmoji -l'
         filter: '(?P<unicode>[^ -]+) - (?P<emoji>[^ -]+) - (?P<type>.+)'
-        valueFormat: '{{ .emoji }}'
+        valueFormat: '{{ .unicode }}'
         labelFormat: '{{ .unicode }} {{ .type }}'
       - type: 'input'
         title: 'Description of the change'
         key: 'Description'
+        initialValue: ''
+      - type: 'input'
+        title: 'Scope (optional)'
+        key: 'Scope'
         initialValue: ''
