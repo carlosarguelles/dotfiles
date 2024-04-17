@@ -21,3 +21,19 @@ gui:
      - "#4c566a"
 git:
   parseEmoji: true
+customCommands:
+  - key: '<c-c>'
+    context: 'global'
+    command: "git commit -m '{{.Form.GitmojiType}} {{.Form.Description}}'"
+    prompts:
+      - type: 'menuFromCommand'
+        title: 'What kind of change is it?'
+        key: 'GitmojiType'
+        command: 'gitmoji -l'
+        filter: '(?P<unicode>[^ -]+) - (?P<emoji>[^ -]+) - (?P<type>.+)'
+        valueFormat: '{{ .emoji }}'
+        labelFormat: '{{ .unicode }} {{ .type }}'
+      - type: 'input'
+        title: 'Description of the change'
+        key: 'Description'
+        initialValue: ''
