@@ -24,7 +24,7 @@ git:
 customCommands:
   - key: '<c-c>'
     context: 'global'
-    command: 'scope="{{.Form.Scope}}"; if [ -z "$scope" ]; then git commit -m "{{.Form.Emoji}} {{.Form.Description}}"; else git commit -m "{{.Form.Emoji}} ({{.Form.Scope}}): {{.Form.Description}}"; fi'
+    command: "scope=\"{{.Form.Scope}}\"; if [ -z \"$scope\" ]; then git commit -m '{{.Form.Emoji}} {{.Form.Description}}'; else git commit -m '{{.Form.Emoji}} ({{.Form.Scope}}): {{.Form.Description}}'; fi"
     prompts:
       - type: 'menuFromCommand'
         title: 'What kind of change is it?'
