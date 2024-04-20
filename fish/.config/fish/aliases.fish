@@ -9,3 +9,4 @@ alias l "eza -l -g --icons --group-directories-first"
 alias ll "l -a"
 alias cl clear
 alias kssh "kitty +kitten ssh"
+alias lg lazygit
