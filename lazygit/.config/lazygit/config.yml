@@ -41,3 +41,23 @@ customCommands:
         title: 'Scope (optional)'
         key: 'Scope'
         initialValue: ''
+  - key: '<c-x>'
+    context: 'global'
+    command: "emoji=$(echo \"{{.Form.Emoji}}\" | sed -n 's/^\\([^[:space:]]*\\).*/\\1/p'); scope=\"{{.Form.Scope}}\"; if [ -z \"$scope\" ]; then git commit -m \"$emoji\"' {{.Form.Description}}'; else git commit -m \"$emoji\"' ({{.Form.Scope}}): {{.Form.Description}}'; fi"
+    prompts:
+    - type: 'input'
+      title: 'What kind of change is it?'
+      key: 'Emoji'
+      suggestions:
+        command: "gitmoji -l | sed 's/ - :.*: - / /'"
+    - type: 'input'
+      title: 'Description of the change'
+      key: 'Description'
+      initialValue: ''
+    - type: 'input'
+      title: 'Scope (optional)'
+      key: 'Scope'
+      initialValue: ''
+services:
+  gh_personal: 'github:github.com'
+  gh_nuvo: 'github:github.com'
