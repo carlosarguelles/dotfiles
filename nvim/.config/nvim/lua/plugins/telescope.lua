@@ -4,6 +4,7 @@ return {
     local actions = require("telescope.actions")
     return {
       defaults = {
+        path_display = { "filename_first" },
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
@@ -33,7 +34,6 @@ return {
       pickers = {
         find_files = {
           hidden = true,
-          path_display = { "truncate" },
         },
       },
     }
