@@ -8,6 +8,7 @@ return {
       ["<C-l>"] = false,
       ["<C-h>"] = false,
     },
+    delete_to_trash = true,
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {

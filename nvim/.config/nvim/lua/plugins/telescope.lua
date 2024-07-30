@@ -6,11 +6,13 @@ return {
       defaults = {
         path_display = { "filename_first" },
         layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
-        prompt_prefix = " ",
-        selection_caret = " ",
+        preview = false,
+        results_title = false,
+        prompt_title = false,
+        prompt_prefix = " ",
+        selection_caret = "⠀⠀",
         file_ignore_patterns = {
           "node_modules/",
           ".git",
@@ -33,7 +35,13 @@ return {
       },
       pickers = {
         find_files = {
+          layout_config = { prompt_position = "top", height = 0.6, width = 0.5 },
+          prompt_title = false,
           hidden = true,
+        },
+        live_grep = {
+          layout_config = { prompt_position = "top" },
+          preview = true,
         },
       },
     }
@@ -48,5 +56,6 @@ return {
     { "<C-f>", "<cmd>Telescope git_files<cr>", desc = "Find Git Files" },
     { ";b", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
     { ";g", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+    { ";h", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
   },
 }

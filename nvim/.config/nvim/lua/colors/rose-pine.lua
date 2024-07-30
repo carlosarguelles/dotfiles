@@ -1,7 +1,6 @@
 local palette = require("rose-pine.palette")
 
 return {
-
   bg = palette.base,
   fg = palette.text,
   yellow = palette.gold,

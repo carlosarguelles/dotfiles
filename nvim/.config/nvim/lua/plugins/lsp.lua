@@ -1,21 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
-  dependencies = {
-    "pmizio/typescript-tools.nvim",
-    init = function()
-      require("typescript-tools").setup({
-        on_attach = require("lazyvim.util").lsp.on_attach(function(client, buffer)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-          vim.keymap.set("n", "tso", ":TSToolsOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "tsr", ":TSToolsRenameFile<CR>", { desc = "Rename File", buffer = buffer })
-          vim.keymap.set("n", "tsi", ":TSToolsAddMissingImports<CR>", { desc = "Rename File", buffer = buffer })
-        end),
-      })
-    end,
-  },
   ---@class PluginLspOpts
   opts = {
+    inlay_hints = {
+      enabled = false,
+    },
     servers = {
       emmet_language_server = {
         filetypes = {
@@ -30,6 +19,8 @@ return {
           "pug",
           "typescriptreact",
           "templ",
+          "elixir",
+          "heex",
         },
       },
       htmx = {
@@ -41,7 +32,7 @@ return {
         },
       },
       tailwindcss = {
-        filetypes_include = { "templ", "go" },
+        filetypes_include = { "templ", "go", "elixir", "heex" },
       },
     },
   },

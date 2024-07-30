@@ -14,7 +14,6 @@ return {
       -- vim.o.background = "dark"
       -- vim.g.gruvbox_material_ui_contrast = "high"
       -- vim.g.gruvbox_material_float_style = "dim"
-      -- vim.g.gruvbox_material_visual = "reverse"
       -- vim.g.gruvbox_material_colors_override = {
       --   ["bg_dim"] = { "#282828", "235" },
       -- }
@@ -28,7 +27,11 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("nord").setup({})
+      require("nord").setup({
+        styles = {
+          comments = { italic = false },
+        },
+      })
       vim.cmd.colorscheme("nord")
     end,
   },
@@ -37,6 +40,10 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
+      -- require("catppuccin").setup({
+      --   no_italic = true,
+      --   no_bold = true,
+      -- })
       -- vim.cmd.colorscheme("catppuccin-macchiato")
     end,
   },

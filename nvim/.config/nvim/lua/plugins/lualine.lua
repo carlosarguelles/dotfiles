@@ -139,10 +139,10 @@ return {
 
     ins_right({
       "diff",
-      symbols = { added = icons.git.added, modified = icons.git.modified, removed = icons.git.removed },
+      symbols = { added = "+", modified = "~", removed = "-" },
       diff_color = {
         added = { fg = colors.green },
-        modified = { fg = colors.orange },
+        modified = { fg = colors.yellow },
         removed = { fg = colors.red },
       },
     })
