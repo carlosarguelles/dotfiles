@@ -32,3 +32,7 @@ export PNPM_HOME=$HOME/Library/pnpm
 if [ -z "$(echo $PATH | grep -o $PNPM_HOME)" ]; then
 	export PATH=$PNPM_HOME:$PATH
 fi
+
+# Java
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home"
