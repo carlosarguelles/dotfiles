@@ -31,7 +31,6 @@ function fish_prompt
       set dot "$red• "
   end
   set -l cwd $cyan(basename (prompt_pwd))
-  set -l host $blue(hostname)
 
   if [ (_git_branch_name) ]
     set -l git_branch $red(_git_branch_name)
@@ -43,6 +42,6 @@ function fish_prompt
     end
   end
 
-  echo -n -s $dot $host ' ' $cwd $git_info $normal ' '
+  echo -n -s $dot $cwd $git_info $normal ' '
 end
 

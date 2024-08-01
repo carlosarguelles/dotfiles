@@ -8,9 +8,6 @@ end
 
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/colors.fish
+source ~/.config/fish/prompt.fish
 
 fenv source $HOME/.profile
-
-# Vendor
-source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
-source $HOME/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
