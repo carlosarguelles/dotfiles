@@ -24,14 +24,14 @@ git:
 customCommands:
   - key: '<c-c>'
     context: 'global'
-    command: "scope=\"{{.Form.Scope}}\"; if [ -z \"$scope\" ]; then git commit -m '{{.Form.Emoji}} {{.Form.Description}}'; else git commit -m '{{.Form.Emoji}} ({{.Form.Scope}}): {{.Form.Description}}'; fi"
+    command: "~/.local/bin/scripts/commit-message-with-gitmoji.sh \"{{.Form.Emoji}}\" \"{{.Form.Scope}}\" \"{{.Form.Description}}\""
     prompts:
       - type: 'menuFromCommand'
         title: 'What kind of change is it?'
         key: 'Emoji'
         command: 'gitmoji -l'
         filter: '(?P<unicode>[^ -]+) - (?P<emoji>[^ -]+) - (?P<type>.+)'
-        valueFormat: '{{ .unicode }}'
+        valueFormat: '{{ .emoji }}'
         labelFormat: '{{ .unicode }} {{ .type }}'
       - type: 'input'
         title: 'Description of the change'
@@ -43,13 +43,13 @@ customCommands:
         initialValue: ''
   - key: '<c-x>'
     context: 'global'
-    command: "emoji=$(echo \"{{.Form.Emoji}}\" | sed -n 's/^\\([^[:space:]]*\\).*/\\1/p'); scope=\"{{.Form.Scope}}\"; if [ -z \"$scope\" ]; then git commit -m \"$emoji\"' {{.Form.Description}}'; else git commit -m \"$emoji\"' ({{.Form.Scope}}): {{.Form.Description}}'; fi"
+    command: "~/.local/bin/scripts/commit-message-with-gitmoji.sh \"{{.Form.Emoji}}\" \"{{.Form.Scope}}\" \"{{.Form.Description}}\""
     prompts:
     - type: 'input'
       title: 'What kind of change is it?'
       key: 'Emoji'
       suggestions:
-        command: "gitmoji -l | sed 's/ - :.*: - / /'"
+        command: "gitmoji -l"
     - type: 'input'
       title: 'Description of the change'
       key: 'Description'
@@ -57,6 +57,19 @@ customCommands:
     - type: 'input'
       title: 'Scope (optional)'
       key: 'Scope'
+      initialValue: ''
+  - key: '<c-z>'
+    context: 'global'
+    command: "~/.local/bin/scripts/commit-message-with-gitmoji-and-branch-name.sh \"{{.Form.Emoji}}\" \"{{.Form.Description}}\""
+    prompts:
+    - type: 'input'
+      title: 'What kind of change is it?'
+      key: 'Emoji'
+      suggestions:
+        command: "gitmoji -l"
+    - type: 'input'
+      title: 'Description of the change'
+      key: 'Description'
       initialValue: ''
 services:
   gh_personal: 'github:github.com'
