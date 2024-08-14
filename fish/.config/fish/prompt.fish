@@ -44,4 +44,3 @@ function fish_prompt
 
   echo -n -s $dot $cwd $git_info $normal ' '
 end
-

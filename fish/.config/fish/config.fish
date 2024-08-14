@@ -10,4 +10,8 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/colors.fish
 source ~/.config/fish/prompt.fish
 
+function fish_user_key_bindings
+    bind \cf 'tmux-sessionizer.sh'
+end
+
 fenv source $HOME/.profile
