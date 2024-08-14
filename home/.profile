@@ -34,5 +34,7 @@ if [ -z "$(echo $PATH | grep -o $PNPM_HOME)" ]; then
 fi
 
 # Java
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+export JAVA_17="/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home"
+export JAVA_11="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
