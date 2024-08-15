@@ -21,6 +21,6 @@ return {
     vim.g.db_ui_use_nerd_fonts = 1
   end,
   keys = {
-    { "<leader>db", "<cmd>DBUIToggle<cr>", desc = "Toggle DBUI" },
+    { "<leader>xb", "<cmd>DBUIToggle<cr>", desc = "Toggle DBUI" },
   },
 }
