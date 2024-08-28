@@ -56,3 +56,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source $HOME/.aliases.zsh
 source $HOME/.profile
+
+bindkey -s ^f "tmux-sessionizer.sh\n"
