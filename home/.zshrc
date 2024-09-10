@@ -27,6 +27,7 @@ zinit cdreplay -q
 
 unsetopt BEEP
 
+DISABLE_AUTO_TITLE="true"
 HISTSIZE=5000
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=$HISTSIZE
