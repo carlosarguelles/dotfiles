@@ -18,7 +18,7 @@ return {
 
     vim.o.laststatus = vim.g.lualine_laststatus
 
-    local colors = require("colors.tokyonight")
+    local colors = require("colors.nord")
 
     local config = {
       options = {
