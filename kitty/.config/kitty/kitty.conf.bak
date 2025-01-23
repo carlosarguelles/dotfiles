@@ -1,6 +1,6 @@
 # FONT
-include ./cascadia.conf
-# include ./jetbrains-mono.conf
+# include ./cascadia.conf
+include ./jetbrains-mono.conf
 
 # CURSOR SHAPE
 cursor_shape                            block
@@ -34,7 +34,7 @@ macos_hide_from_tasks                   no
 macos_show_window_title_in              window
 
 # BEGIN_KITTY_THEME
-# Tokyo Night Moon
+# Nord
 include current-theme.conf
 # END_KITTY_THEME
 

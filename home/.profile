@@ -31,7 +31,7 @@ export PATH=$BUN_INSTALL/bin:$PATH
 # PNPM
 export PNPM_HOME=$HOME/Library/pnpm
 if [ -z "$(echo $PATH | grep -o $PNPM_HOME)" ]; then
-	export PATH=$PNPM_HOME:$PATH
+    export PATH=$PNPM_HOME:$PATH
 fi
 
 # FZF Colors
@@ -47,3 +47,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 export JAVA_17="/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home"
 export JAVA_11="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
+
+export SOMETHING="something"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/carlos/Library/Application Support/Herd/config/php/83/"
+
+# Herd injected PHP binary.
+export PATH="/Users/carlos/Library/Application Support/Herd/bin/":$PATH

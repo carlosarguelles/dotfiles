@@ -23,7 +23,6 @@ return {
       json = js_ft,
       java = { "google-java-format" },
       templ = { "templ" },
-      ocaml = { "ocamlformat" },
       astro = { "astro" },
     },
   },
