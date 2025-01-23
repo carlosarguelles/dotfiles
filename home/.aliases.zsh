@@ -1,5 +1,7 @@
 alias v=nvim
-alias vconf="cd ~/.dotfiles/nvim/.config/nvim && v"
+alias vi=nvim
+alias cd=z
+alias vconf="cd ~/.dotfiles/ && v"
 alias b="brew install"
 alias bc="brew install --cask"
 alias bs="brew search"
