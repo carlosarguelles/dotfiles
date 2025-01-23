@@ -49,3 +49,4 @@ vim.filetype.add({
     templ = "templ",
   },
 })
+vim.g.snacks_animate = false
