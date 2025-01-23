@@ -53,7 +53,7 @@ return {
     { "<leader><space>", false },
     { "<leader>,", false },
     { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    { "<C-f>", "<cmd>Telescope git_files<cr>", desc = "Find Git Files" },
+    { "<C-f>", "<cmd>Telescope git_status<cr>", desc = "Find Git Dirty Files" },
     { ";b", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
     { ";g", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
     { ";h", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
