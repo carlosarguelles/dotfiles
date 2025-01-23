@@ -131,6 +131,30 @@ return {
     end,
   },
   {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        trigger = {
+          show_on_keyword = false,
+        },
+        accept = {
+          auto_brackets = {
+            enabled = false,
+          },
+        },
+      },
+      keymap = {
+        preset = "default",
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-y>"] = { "select_and_accept", "fallback" },
+        ["<C-Space>"] = { "show", "fallback" },
+        ["<C-l>"] = { "snippet_forward", "fallback" },
+        ["<C-h>"] = { "snippet_backward", "fallback" },
+      },
+    },
+  },
+  {
     "folke/flash.nvim",
     enabled = false,
   },
