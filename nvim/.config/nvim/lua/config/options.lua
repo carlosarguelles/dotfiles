@@ -35,6 +35,7 @@ local options = {
   sidescrolloff = 6,
   guicursor = "",
   list = false,
+  cursorline = false,
 }
 
 for i, j in pairs(options) do

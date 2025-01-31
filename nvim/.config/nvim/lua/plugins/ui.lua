@@ -1,6 +1,16 @@
 return {
   -- messages, cmdline and the popupmenu
   {
+    "snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = "",
+        },
+      },
+    },
+  },
+  {
     "folke/noice.nvim",
     opts = function(_, opts)
       table.insert(opts.routes, {
