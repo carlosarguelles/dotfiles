@@ -34,6 +34,14 @@ if [ -z "$(echo $PATH | grep -o $PNPM_HOME)" ]; then
 	export PATH=$PNPM_HOME:$PATH
 fi
 
+# FZF Colors
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+    --color=fg:#e5e9f0,hl:#81a1c1
+    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+    --color=border:#4c566a,spinner:#b48dac,header:#a3be8b
+    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
+
 # Java
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 export JAVA_17="/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home"

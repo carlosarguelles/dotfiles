@@ -8,6 +8,9 @@ return {
           header = "",
         },
       },
+      win = {
+        backdrop = false,
+      },
     },
   },
   {
