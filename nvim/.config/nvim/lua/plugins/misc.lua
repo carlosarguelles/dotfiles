@@ -11,6 +11,4 @@ return {
   },
   { "ThePrimeagen/vim-be-good" },
   { "tpope/vim-abolish" },
-  { "norcalli/nvim-colorizer.lua" },
-  { "themaxmarchuk/tailwindcss-colors.nvim" },
 }

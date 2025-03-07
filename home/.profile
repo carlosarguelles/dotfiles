@@ -55,3 +55,4 @@ export HERD_PHP_83_INI_SCAN_DIR="/Users/carlos/Library/Application Support/Herd/
 
 # Herd injected PHP binary.
 export PATH="/Users/carlos/Library/Application Support/Herd/bin/":$PATH
+export TMUX_SESSIONIZER_DIRS="/Users/carlos/Dev /Users/carlos/Work"

@@ -8,10 +8,12 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
     --color=border:#4c566a,spinner:#b48dac,header:#a3be8b
     --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
 
+read -r -a DIRS <<< "$TMUX_SESSIONIZER_DIRS"
+
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/adl ~/Dev -mindepth 1 -maxdepth 1 -type d | fzf --reverse --border --preview 'ls --color {}')
+  selected=$(find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d | fzf --reverse --border --preview 'ls --color {}')
 fi
 
 if [[ -z $selected ]]; then

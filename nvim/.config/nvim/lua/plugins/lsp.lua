@@ -1,38 +1,20 @@
 return {
-  "neovim/nvim-lspconfig",
-  ---@class PluginLspOpts
-  opts = {
-    inlay_hints = {
-      enabled = false,
-    },
-    servers = {
-      emmet_language_server = {
-        filetypes = {
-          "css",
-          "eruby",
-          "html",
-          "javascript",
-          "javascriptreact",
-          "less",
-          "sass",
-          "scss",
-          "pug",
-          "typescriptreact",
-          "templ",
-          "elixir",
-          "heex",
+  { "williamboman/mason-lspconfig.nvim", enabled = false },
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      inlay_hints = {
+        enabled = false,
+      },
+      servers = {
+        nil_ls = {
+          autostart = true,
+          cmd = { "/run/current-system/sw/bin/nil" },
         },
-      },
-      htmx = {
-        filetypes = { "html", "templ" },
-      },
-      pyright = {
-        python = {
-          pythonPath = "/opt/homebrew/bin/python3.10",
+        emmet_language_server = {
+          filetypes = { "css", "html", "markdown" },
         },
-      },
-      tailwindcss = {
-        filetypes_include = { "templ", "go", "elixir", "heex" },
       },
     },
   },

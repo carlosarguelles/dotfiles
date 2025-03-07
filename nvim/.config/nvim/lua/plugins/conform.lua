@@ -24,6 +24,7 @@ return {
       java = { "google-java-format" },
       templ = { "templ" },
       astro = { "astro" },
+      nix = { "nixfmt" },
     },
   },
 }
