@@ -37,6 +37,7 @@ return {
               "oil",
               "terminal",
               "lazyterm",
+              "snacks_dashboard",
             },
           },
           theme = {
@@ -130,6 +131,11 @@ return {
           color_warn = { fg = colors.yellow },
           color_info = { fg = colors.cyan },
         },
+      })
+
+      ins_left({
+        "navic",
+        colors_correction = "dynamic",
       })
 
       ins_left({
