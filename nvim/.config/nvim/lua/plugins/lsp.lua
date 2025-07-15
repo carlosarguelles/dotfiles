@@ -15,6 +15,9 @@ return {
         emmet_language_server = {
           filetypes = { "css", "html", "markdown" },
         },
+        tailwindcss = {
+          filetypes_include = { "templ", "go", "elixir", "heex" },
+        },
       },
     },
   },

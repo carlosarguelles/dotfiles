@@ -11,7 +11,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(tmux list-sessions -F '#S' | fzf --reverse --border --border-label 'Active Sessions')
+  selected=$(tmux list-sessions -F '#S' | fzf --reverse --border=rounded)
 fi
 
 if [[ -z $selected ]]; then

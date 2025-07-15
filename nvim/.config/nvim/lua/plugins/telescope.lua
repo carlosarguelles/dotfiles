@@ -14,15 +14,13 @@ return {
         prompt_prefix = " ",
         selection_caret = "⠀⠀",
         file_ignore_patterns = {
-          "node_modules/",
-          ".git",
-          "dist",
-          "build/",
-          ".nuxt/",
-          ".cache/",
-          "venv/",
-          "tmp/",
-          "public/",
+          "^node_modules/",
+          "^.git",
+          "^dist",
+          "^build/",
+          "^.cache/",
+          "^venv/",
+          "^tmp/",
         },
         mappings = {
           n = {

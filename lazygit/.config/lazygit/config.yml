@@ -1,28 +1,33 @@
 gui:
-  nerdFontsVersion: 3
+  nerdFontsVersion: "3"
   theme:
-   defaultFgColor:
-     - "#d8dee9"
-   cherryPickedCommitFgColor:
-     - "#88c0d0"
-   cherryPickedCommitBgColor:
-     - "#d8dee9"
-   activeBorderColor:
-     - "bold"
-   unstagedChangesColor:
-     - "#bf616a"
-   selectedLineBgColor:
-     - "#434c5e"
-   searchingActiveBorderColor:
-     - "bold"
-   optionsTextColor:
-     - "#88c0d0"
-   inactiveBorderColor:
-     - "#4c566a"
+    cherryPickedCommitFgColor:
+      - "#88c0d0"
+    cherryPickedCommitBgColor:
+      - "#d8dee9"
+    activeBorderColor:
+      - "#414C60"
+    unstagedChangesColor:
+      - "#bf616a"
+    selectedLineBgColor:
+      - "#414C60"
+    searchingActiveBorderColor:
+      - "bold"
+    optionsTextColor:
+      - "#000000"
+    inactiveBorderColor:
+      - "#434c5e"
+    defaultFgColor:
+      - "#ffffff"
+os:
+  editPreset: "nvim-remote"
 git:
   parseEmoji: true
+  paging:
+    colorArg: always
 customCommands:
   - key: '<c-c>'
+    description: Commit message with gitmoji
     context: 'global'
     command: "~/.local/bin/scripts/commit-message-with-gitmoji.sh \"{{.Form.Emoji}}\" \"{{.Form.Scope}}\" \"{{.Form.Description}}\""
     prompts:
@@ -42,6 +47,7 @@ customCommands:
         key: 'Scope'
         initialValue: ''
   - key: '<c-x>'
+    description: Commit message with gitmoji 2
     context: 'global'
     command: "~/.local/bin/scripts/commit-message-with-gitmoji.sh \"{{.Form.Emoji}}\" \"{{.Form.Scope}}\" \"{{.Form.Description}}\""
     prompts:

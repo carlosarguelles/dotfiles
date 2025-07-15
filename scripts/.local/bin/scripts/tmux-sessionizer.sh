@@ -13,7 +13,7 @@ read -r -a DIRS <<< "$TMUX_SESSIONIZER_DIRS"
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d | fzf --reverse --border --border-label 'Choose Directory to Sessionize')
+  selected=$(find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d | fzf --reverse --border)
 fi
 
 if [[ -z $selected ]]; then

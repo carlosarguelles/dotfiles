@@ -5,43 +5,27 @@ return {
     priority = 1000,
     config = function()
       require("nord").setup({
-        transparent = true,
+        transparent = false,
         borders = true,
-        errors = { mode = "none" },
         styles = {
           comments = { italic = false },
         },
-        ---@param colors Nord.Palette
-        on_highlights = function(hl, colors)
-          local dap = {
-            "DapUIStopNC",
-            "DapUIRestartNC",
-            "DapUIStepOutNC",
-            "DapUIStepBackNC",
-            "DapUIStepIntoNC",
-            "DapUIStepOverNC",
-            "DapUIEndofBuffer",
-            "DapUIPlayPauseNC",
-            "DapUIUnavailableNC",
-          }
-          hl.NormalFloat = {
-            bg = "NONE",
-          }
-          hl.FloatBorder = {
-            fg = colors.polar_night.brightest,
-            bg = "NONE",
-          }
-          hl.DapUIScope = {
-            bg = "NONE",
-          }
-          for _, daphl in pairs(dap) do
-            hl[daphl] = {
-              bg = "NONE",
-            }
-          end
-        end,
       })
       vim.cmd.colorscheme("nord")
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "frappe",
+        transparent_background = false,
+        no_italic = true,
+        no_bold = true,
+      })
+      -- vim.cmd.colorscheme("catppuccin")
     end,
   },
 }

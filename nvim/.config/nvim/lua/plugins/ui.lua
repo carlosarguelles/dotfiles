@@ -10,6 +10,7 @@ return {
       },
       win = {
         backdrop = false,
+        border = "rounded",
       },
     },
   },
