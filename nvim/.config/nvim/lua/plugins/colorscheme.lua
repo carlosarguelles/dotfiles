@@ -10,6 +10,15 @@ return {
         styles = {
           comments = { italic = false },
         },
+        ---@param colors Nord.Palette
+        on_highlights = function(hl, colors)
+          hl.NavicSeparator = {
+            bg = colors.polar_night.origin,
+          }
+          hl.StatusLine = {
+            bg = colors.polar_night.origin,
+          }
+        end,
       })
       vim.cmd.colorscheme("nord")
     end,

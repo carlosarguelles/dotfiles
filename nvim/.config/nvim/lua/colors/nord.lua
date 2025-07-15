@@ -1,5 +1,7 @@
+local palette = require("nord.colors")
+
 return {
-  bg = nil,
+  bg = palette.default_bg,
   fg = "#E5E9F0",
   yellow = "#EBCB8B",
   cyan = "#88C0D0",
