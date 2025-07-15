@@ -15,12 +15,15 @@ return {
         selection_caret = "⠀⠀",
         file_ignore_patterns = {
           "^node_modules/",
-          "^.git",
-          "^dist",
+          "^.git/",
+          "^dist/",
           "^build/",
+          "^.nuxt/",
           "^.cache/",
           "^venv/",
           "^tmp/",
+          "^public/",
+          "^.gopath/",
         },
         mappings = {
           n = {
@@ -36,6 +39,10 @@ return {
           layout_config = { prompt_position = "top", height = 0.6, width = 0.5 },
           prompt_title = false,
           hidden = true,
+        },
+        git_status = {
+          layout_config = { prompt_position = "top", height = 0.6, width = 0.5 },
+          prompt_title = false,
         },
         live_grep = {
           layout_config = { prompt_position = "top" },

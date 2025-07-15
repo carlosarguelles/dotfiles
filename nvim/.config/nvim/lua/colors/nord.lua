@@ -1,17 +1,16 @@
-local palette = require("nord.colors")
+local colors = require("nord.colors")
 
 return {
-  bg = palette.default_bg,
-  fg = "#E5E9F0",
-  yellow = "#EBCB8B",
-  cyan = "#88C0D0",
-  darkblue = "#5E81AC",
-  green = "#A3BE8C",
-  orange = "#D08770",
-  violet = "#B48EAD",
-  magenta = "#B48EAD",
-  blue = "#81A1C1",
-  red = "#BF616A",
-  polar = "#3B4252",
-  bg1 = "#3B4252",
+  bg = colors.default_bg,
+  fg = colors.palette.snow_storm.brighter,
+  yellow = colors.palette.aurora.yellow,
+  cyan = colors.palette.frost.ice,
+  darkblue = colors.palette.frost.artic_ocean,
+  green = colors.palette.aurora.green,
+  orange = colors.palette.aurora.orange,
+  violet = colors.palette.aurora.purple,
+  magenta = colors.palette.aurora.purple,
+  blue = colors.palette.frost.artic_water,
+  red = colors.palette.aurora.red,
+  polar = colors.palette.polar_night.bright,
 }

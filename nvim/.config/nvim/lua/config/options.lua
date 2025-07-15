@@ -4,7 +4,7 @@
 
 local options = {
   clipboard = "",
-  cursorline = false,
+  cursorline = true,
   guicursor = "",
 }
 
