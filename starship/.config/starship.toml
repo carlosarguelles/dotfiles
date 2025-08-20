@@ -1,0 +1,38 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[directory]
+style = 'cyan'
+
+[character]
+success_symbol = ' [➜](bold green)'
+error_symbol = ' [➜](bold red)'
+
+[package]
+disabled = false
+symbol = '󰓹 '
+style = '208'
+
+[time]
+disabled = false
+format = '[✦](cyan) at [$time]($style)'
+style = 'yellow'
+time_format = '%T'
+utc_time_offset = '-5'
+
+[git_branch]
+symbol = ' '
+truncation_symbol = ''
+style = 'purple'
+
+[git_status]
+format = '([\[$conflicted$deleted$renamed$modified$typechanged$staged$untracked\]]($style) )'
+
+[java]
+symbol = '  '
+style = 'red'
+
+[gradle]
+symbol = ' '
+style = 'green'
