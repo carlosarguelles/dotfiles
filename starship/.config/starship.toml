@@ -8,11 +8,15 @@ style = 'cyan'
 [character]
 success_symbol = ' [➜](bold green)'
 error_symbol = ' [➜](bold red)'
+vimcmd_symbol = ' [N](bold green)'
+vimcmd_replace_one_symbol = ' [R](bold purple)'
+vimcmd_replace_symbol = ' [R](bold purple)'
+vimcmd_visual_symbol = ' [V](bold yellow)'
 
 [package]
 disabled = false
 symbol = '󰓹 '
-style = '208'
+style = 'blue'
 
 [time]
 disabled = false
@@ -24,7 +28,7 @@ utc_time_offset = '-5'
 [git_branch]
 symbol = ' '
 truncation_symbol = ''
-style = 'purple'
+style = '#D08770'
 
 [git_status]
 format = '([\[$conflicted$deleted$renamed$modified$typechanged$staged$untracked\]]($style) )'
