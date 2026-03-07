@@ -37,6 +37,9 @@ format = '([\[$conflicted$deleted$renamed$modified$typechanged$staged$untracked\
 symbol = '  '
 style = 'red'
 
+[golang]
+symbol = ' '
+
 [gradle]
 symbol = ' '
 style = 'green'
