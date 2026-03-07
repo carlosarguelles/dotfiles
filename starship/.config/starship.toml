@@ -46,8 +46,9 @@ style = 'green'
 
 [hostname]
 ssh_symbol = '󰌘 '
-style = 'green'
+style = 'purple'
 format = '[$ssh_symbol$hostname]($style) '
 
 [username]
-format = '[$user]($style) '
+style = 'green'
+format = '[$user]($style) at '
