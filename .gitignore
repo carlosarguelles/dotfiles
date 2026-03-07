@@ -4,3 +4,5 @@
 **/fish/conf.d
 **/fish/functions
 **/fish/fish_variables
+
+lazygit/.config/lazygit/state.yml
