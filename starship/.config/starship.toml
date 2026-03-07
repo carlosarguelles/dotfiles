@@ -38,8 +38,12 @@ symbol = '  '
 style = 'red'
 
 [golang]
-symbol = ' '
+symbol = '󰟓 '
 
 [gradle]
 symbol = ' '
+style = 'green'
+
+[hostname]
+ssh_symbol = '󰌘 '
 style = 'green'
